@@ -1,0 +1,19 @@
+.navbar-container {
+    .logo-container {
+        .brandLogo {
+            min-height: 2em;
+            min-width: 2em;
+            background-color: blue;
+        }
+    }
+    .navbar-element {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .navbar-item {
+            color: chocolate;
+            text-transform: uppercase;
+            margin: 2em;
+        }
+    }
+}
