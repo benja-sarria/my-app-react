@@ -1,19 +1,19 @@
-.navbar-container {
-    .logo-container {
-        .brandLogo {
-            min-height: 2em;
-            min-width: 2em;
-            background-color: blue;
-        }
-    }
-    .navbar-element {
+.appbarcontainer {
+    display: flex;
+    align-items: stretch;
+    background: rgb(0, 88, 66) !important;
+    background-image: linear-gradient(
+        120deg,
+        rgb(0, 196, 147),
+        rgb(0, 124, 93),
+        rgb(0, 88, 66)
+    ) !important;
+    .brand-container {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
-        .navbar-item {
-            color: chocolate;
-            text-transform: uppercase;
-            margin: 2em;
+        .sushi-logo {
+            max-width: 5em;
         }
     }
 }

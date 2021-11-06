@@ -4,21 +4,39 @@
 
 // Todos los componentes funcionales empiezan con mayúscula - así como debemos escribir el nombre del archivo con el nombre de la función del componente que vamos a crear
 
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import TemporaryDrawer from "../navDrawer/navDrawer.js";
 import "./navBar.scss";
 
-const NavBar = () => {
+export default function ButtonAppBar() {
     return (
-        <div className="navbar-container">
-            <div className="logo-container">
-                <img src="#" className="brandLogo" alt="logo de la marca" />
-            </div>
-            <ul className="navbar-element">
-                <li className="navbar-item">Enlace 1</li>
-                <li className="navbar-item">Enlace 2</li>
-                <li className="navbar-item">Enlace 3</li>
-            </ul>
-        </div>
-    );
-};
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" className="appbarcontainer">
+                <Toolbar>
+                    <TemporaryDrawer />
 
-export default NavBar;
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                        className="brand-container"
+                    >
+                        <img
+                            src="./assets/images/logo.webp"
+                            alt="planet sushi logo"
+                            className="sushi-logo"
+                        />
+                        Planet Sushi
+                    </Typography>
+                    <Button color="inherit">Crea</Button>
+                    <Button color="inherit">Descubre</Button>
+                    <Button color="inherit">Disfruta</Button>
+                </Toolbar>
+            </AppBar>
+        </Box>
+    );
+}

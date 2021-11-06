@@ -1,0 +1,41 @@
+.drawer-container {
+    .iconBtnContainer {
+        color: white;
+        max-width: 1.75em;
+        border: none;
+        background-color: transparent;
+        .menu-icon {
+            min-width: 2.4em;
+            max-width: 2.4em;
+        }
+    }
+    .nav-drawer {
+        background-color: black !important;
+    }
+}
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+    background-color: black !important;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(1, 255, 128, 0.123),
+        rgba(2, 136, 73, 0.123),
+        rgba(0, 68, 34, 0.123)
+    ) !important;
+    .css-h4y409-MuiList-root {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.466);
+        &:last-of-type {
+            border-bottom: 2px solid transparent;
+        }
+        .css-bshv44-MuiButtonBase-root-MuiListItem-root {
+            &:hover {
+                background-color: rgba(1, 255, 128, 0.123);
+            }
+            .css-10hburv-MuiTypography-root {
+                color: white;
+            }
+        }
+        .css-cveggr-MuiListItemIcon-root {
+            color: white;
+        }
+    }
+}
