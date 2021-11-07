@@ -4,9 +4,9 @@
     background: rgb(0, 88, 66) !important;
     background-image: linear-gradient(
         120deg,
-        rgb(0, 196, 147),
-        rgb(0, 124, 93),
-        rgb(0, 88, 66)
+        var(--globalGreenHighlight-background-color),
+        var(--globalGreenGradient1-background-color),
+        var(--globalGreenGradient2-background-color)
     ) !important;
     .brand-container {
         display: flex;

@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "../NavBar/navBar.js";
 import { Container } from "react-bootstrap";
+import "./itemListContainer.scss";
 
 export const ItemListContainer = ({ greeting }) => {
     return (
         <Container>
-            <h2>{greeting}</h2>
+            <h2 className="section-title">{greeting}</h2>
         </Container>
     );
 };

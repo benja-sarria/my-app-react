@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import IconButton from "@mui/material/IconButton";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import { CartWidget } from "../cartWidget/cartWidget.js";
 import "./navDrawer.scss";
 
 export default function TemporaryDrawer() {
@@ -52,7 +52,7 @@ export default function TemporaryDrawer() {
                             <ListItemText primary={text} />
                             {text === "Check-out" ? (
                                 <ListItemIcon className="cart-ico-container">
-                                    <ShoppingCartRoundedIcon className="cartIco" />
+                                    <CartWidget className="cartIco" />
                                 </ListItemIcon>
                             ) : (
                                 ""

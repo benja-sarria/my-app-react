@@ -1,12 +1,12 @@
 import React from "react";
 
-/* librería de react icons */
-import { MdShoppingCart } from "react-icons/md";
+/* librería de material icons */
+import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 
 export const CartWidget = () => {
     return (
         <>
-            <MdShoppingCart />
+            <ShoppingCartRoundedIcon />
         </>
     );
 };

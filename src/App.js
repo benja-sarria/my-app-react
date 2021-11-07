@@ -1,15 +1,22 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./app.scss";
+import "./base/_baseStyles.scss";
 import NavBar from "./components/NavBar/navBar.js";
 import { ItemListContainer } from "./components/itemListContainer/itemListContainer.js";
-import "./app.scss";
+import FloatingActionButtons from "./components/floatingBtn/FloatingActionButtons.js";
 
 function App() {
+    let userName = "Usuario";
+
     return (
         <div className="app">
             <header className="App-header">
                 <NavBar />
 
-                <ItemListContainer />
+                <ItemListContainer
+                    greeting={`Hola ${userName}! Bienvenido a Planet Sushi!`}
+                />
+                <FloatingActionButtons />
             </header>
         </div>
     );
