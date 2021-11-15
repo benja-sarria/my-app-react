@@ -4,7 +4,6 @@ import "./base/_baseStyles.scss";
 import NavBar from "./components/NavBar/navBar.js";
 import { ItemListContainer } from "./components/itemListContainer/itemListContainer.js";
 import FloatingActionButtons from "./components/floatingBtn/FloatingActionButtons.js";
-import { ItemCountEnabler } from "./components/ItemCountEnabler/ItemCountEnabler.js";
 
 function App() {
     let userName = "Usuario";
@@ -18,7 +17,6 @@ function App() {
                     greeting={`Hola ${userName}! Bienvenido a Planet Sushi!`}
                 />
 
-                <ItemCountEnabler stock="5" initial="0" />
                 <FloatingActionButtons />
             </header>
         </div>
