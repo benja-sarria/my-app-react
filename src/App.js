@@ -4,6 +4,7 @@ import "./base/_baseStyles.scss";
 import NavBar from "./components/NavBar/navBar.js";
 import { ItemListContainer } from "./components/itemListContainer/itemListContainer.js";
 import FloatingActionButtons from "./components/floatingBtn/FloatingActionButtons.js";
+import { ItemCount } from "./components/ItemCount/ItemCount.js";
 
 function App() {
     let userName = "Usuario";
@@ -16,6 +17,8 @@ function App() {
                 <ItemListContainer
                     greeting={`Hola ${userName}! Bienvenido a Planet Sushi!`}
                 />
+
+                <ItemCount />
                 <FloatingActionButtons />
             </header>
         </div>
