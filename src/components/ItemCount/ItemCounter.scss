@@ -5,134 +5,171 @@
     -ms-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
 }
-
-.item-count-container {
+.item-controls-container {
     position: relative;
     left: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 3em;
-    align-items: stretch;
-    min-height: 5em;
-    .item-count-btn {
-        min-height: 1em;
-        color: white;
-        background-color: transparent;
-        border: none;
-        font-size: 2em;
-        font-weight: 600;
-    }
-    .item-counter {
-        min-height: 1em;
-        max-height: 3em;
-        min-width: 3em;
+    align-items: center;
+    max-width: 20vw;
+    .item-count-container {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 9em;
+        min-width: 9em;
         align-items: center;
-        justify-content: center;
-        padding-top: 0.75em;
-        background-color: var(--globalGreenHighlight-background-color);
-        border-radius: 0.75em;
-        background-image: linear-gradient(
-            140deg,
-            var(--globalGreenHighlight-background-color),
-            var(--globalGreenGradient1-background-color),
-            rgba(146, 218, 87, 0.335)
-        );
-        background-position: 0.15em 0.15em;
-        background-size: 90% 90%;
-        background-repeat: no-repeat;
-
-        border: solid 0.1em var(--globalGreenGradient2-background-color);
-        .counter-number {
-            text-align: center;
+        min-height: 5em;
+        .item-count-btn {
+            min-height: 1em;
             color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 2em;
             font-weight: 600;
-            font-size: 1.5em;
         }
-    }
-    .increase {
-        color: var(--globalGreenHighlight-background-color);
-        background-color: rgba(
-            var(--globalGreenHighlight-background-color-r),
-            var(--globalGreenHighlight-background-color-g),
-            var(--globalGreenHighlight-background-color-b),
-            0
-        );
-        background-image: linear-gradient(
-            to bottom,
-            rgba(
-                var(--globalGreenHighlight-background-color-r),
-                var(--globalGreenHighlight-background-color-g),
-                var(--globalGreenHighlight-background-color-b),
-                0
-            ),
-            transparent
-        );
-        border-radius: 2em 2em 0.4em 0.4em;
-        @include transitionBckgColor;
-        &:hover {
+        .item-counter {
+            min-height: 1em;
+            max-height: 3em;
+            min-width: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 0.75em;
+            background-color: var(--globalGreenHighlight-background-color);
+            border-radius: 0.75em;
+            background-image: linear-gradient(
+                140deg,
+                var(--globalGreenHighlight-background-color),
+                var(--globalGreenGradient1-background-color),
+                rgba(146, 218, 87, 0.335)
+            );
+            background-position: 0.15em 0.15em;
+            background-size: 90% 90%;
+            background-repeat: no-repeat;
+
+            border: solid 0.1em var(--globalGreenGradient2-background-color);
+            .counter-number {
+                text-align: center;
+                color: white;
+                font-weight: 600;
+                font-size: 1.5em;
+            }
+        }
+        .increase {
+            color: var(--globalGreenHighlight-background-color);
             background-color: rgba(
                 var(--globalGreenHighlight-background-color-r),
                 var(--globalGreenHighlight-background-color-g),
                 var(--globalGreenHighlight-background-color-b),
-                0.01
+                0.08
             );
             background-image: linear-gradient(
-                to bottom,
+                to left,
                 rgba(
                     var(--globalGreenHighlight-background-color-r),
                     var(--globalGreenHighlight-background-color-g),
                     var(--globalGreenHighlight-background-color-b),
-                    0.1
+                    0
                 ),
-                transparent,
                 transparent
             );
+            border-radius: 0.4em 2em 2em 0.4em;
             @include transitionBckgColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                margin-bottom: 0.2em;
+            }
+            min-width: 1em;
+
+            &:hover {
+                background-color: rgba(
+                    var(--globalGreenHighlight-background-color-r),
+                    var(--globalGreenHighlight-background-color-g),
+                    var(--globalGreenHighlight-background-color-b),
+                    0.01
+                );
+                background-image: linear-gradient(
+                    to left,
+                    rgba(
+                        var(--globalGreenHighlight-background-color-r),
+                        var(--globalGreenHighlight-background-color-g),
+                        var(--globalGreenHighlight-background-color-b),
+                        0.1
+                    ),
+                    transparent,
+                    transparent
+                );
+                @include transitionBckgColor;
+            }
         }
-    }
-    .decrease {
-        color: var(--globalContrastHighlight-background-color);
-        background-color: rgba(
-            var(--globalContrastHighlight-background-color-r),
-            var(--globalContrastHighlight-background-color-g),
-            var(--globalContrastHighlight-background-color-b),
-            0
-        );
-        background-image: linear-gradient(
-            to bottom,
-            rgba(
-                var(--globalContrastHighlight-background-color-r),
-                var(--globalContrastHighlight-background-color-g),
-                var(--globalContrastHighlight-background-color-b),
-                0
-            ),
-            transparent
-        );
-        border-radius: 0.4em 0.4em 2em 2em;
-        @include transitionBckgColor;
-        &:hover {
+        .decrease {
+            color: var(--globalContrastHighlight-background-color);
             background-color: rgba(
                 var(--globalContrastHighlight-background-color-r),
                 var(--globalContrastHighlight-background-color-g),
                 var(--globalContrastHighlight-background-color-b),
-                0.05
+                0.08
             );
             background-image: linear-gradient(
-                to top,
+                to right,
                 rgba(
                     var(--globalContrastHighlight-background-color-r),
                     var(--globalContrastHighlight-background-color-g),
                     var(--globalContrastHighlight-background-color-b),
-                    0.1
+                    0
                 ),
-                transparent,
                 transparent
             );
-            background-size: 5%;
+            border-radius: 2em 0.4em 0.4em 2em;
 
             @include transitionBckgColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+                margin-bottom: 0.2em;
+            }
+            min-width: 1em;
+            &:hover {
+                background-color: rgba(
+                    var(--globalContrastHighlight-background-color-r),
+                    var(--globalContrastHighlight-background-color-g),
+                    var(--globalContrastHighlight-background-color-b),
+                    0.01
+                );
+                background-image: linear-gradient(
+                    to right,
+                    rgba(
+                        var(--globalContrastHighlight-background-color-r),
+                        var(--globalContrastHighlight-background-color-g),
+                        var(--globalContrastHighlight-background-color-b),
+                        0.1
+                    ),
+                    transparent,
+                    transparent
+                );
+
+                @include transitionBckgColor;
+            }
         }
     }
+    .add-to-cart-container {
+        max-width: 20vw;
+
+        .add-to-cart-btn {
+            color: var(--globalGreenGradient2-background-color);
+            border-color: var(--globalGreenGradient2-background-color);
+            &:hover {
+                color: var(--globalGreenGradient1-background-color);
+                border-color: var(--globalGreenGradient1-background-color);
+            }
+        }
+    }
+}
+.disabled {
+    filter: saturate(0) brightness(0.75) contrast(1.7);
 }
