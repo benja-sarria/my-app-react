@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import "./itemListContainer.scss";
 import { ItemCountEnabler } from "../ItemCountEnabler/ItemCountEnabler.js";
 import { ItemOne } from "../promise/Promise.js";
