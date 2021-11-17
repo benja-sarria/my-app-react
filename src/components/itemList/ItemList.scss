@@ -1,0 +1,10 @@
+.item-list {
+    min-width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 6em;
+    row-gap: 3em;
+    justify-content: center;
+    margin: 3em 0em 5em 0em;
+}

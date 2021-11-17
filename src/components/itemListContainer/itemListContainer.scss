@@ -1,4 +1,4 @@
-.container {
+.container-fluid {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,5 +6,8 @@
     margin-top: 15vh;
     .section-title {
         color: white;
+    }
+    .item-list {
+        display: flex;
     }
 }

@@ -1,0 +1,43 @@
+.card {
+    min-width: 20vw;
+    background-color: rgba(
+        var(--globalGreenHighlight-background-color-r),
+        var(--globalGreenHighlight-background-color-g),
+        var(--globalGreenHighlight-background-color-b),
+        0.009
+    );
+    background-image: linear-gradient(
+        to bottom,
+        rgba(
+            var(--globalGreenHighlight-background-color-r),
+            var(--globalGreenHighlight-background-color-g),
+            var(--globalGreenHighlight-background-color-b),
+            0.25
+        ),
+        transparent
+    );
+    border: none;
+    border-radius: 1em;
+    max-height: 27.5em;
+    .card-img-top {
+        border-radius: 1em 1em 0.25em 0.25em;
+    }
+    .card-body {
+        padding: 1.5em;
+        color: rgba(255, 255, 255, 0.808);
+        .card-title {
+        }
+        .card-text {
+        }
+        .divisor {
+            opacity: 0.25;
+        }
+        .view-more {
+            min-width: 100%;
+            min-height: 1.5em;
+            border-color: var(--globalGreenGradient1-background-color);
+            color: var(--globalGreenGradient1-background-color);
+            border-radius: 0.5em;
+        }
+    }
+}
