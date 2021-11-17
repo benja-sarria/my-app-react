@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PedirDatos } from "../../helpers/PedirDatos.js";
 import { ItemList } from "../itemList/ItemList.js";
 import { stock } from "../../data/stock.js";
+import "./Promise.scss";
 
 export const ItemOne = () => {
     //    para hacer el "cargando" lo podemos hacer con un hook useState
@@ -34,7 +35,7 @@ export const ItemOne = () => {
     return (
         <>
             {loading ? (
-                <h2>Cargando...</h2>
+                <h2 className="loading-sign">Cargando...</h2>
             ) : (
                 <ItemList productos={productos} />
             )}
