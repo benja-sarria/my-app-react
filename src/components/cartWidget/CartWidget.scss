@@ -1,0 +1,21 @@
+.btn-container {
+    .badge-icon {
+        z-index: -2;
+    }
+}
+
+.MuiButtonBase-root {
+    .css-pwyk3z-MuiBadge-badge {
+        z-index: -2 !important;
+    }
+    .MuiButtonBase-root {
+        .MuiBadge-root {
+            z-index: 4;
+            .css-i4bv87-MuiSvgIcon-root {
+                color: "var(--globalGreenGradient1-background-color)";
+            }
+            .MuiSvgIcon-root {
+            }
+        }
+    }
+}

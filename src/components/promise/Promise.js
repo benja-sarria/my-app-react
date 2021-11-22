@@ -35,7 +35,7 @@ export const ItemOne = () => {
     return (
         <>
             {loading ? (
-                <h2 className="loading-sign">Cargando...</h2>
+                <h2 className="loading-sign">Cargando lista de productos...</h2>
             ) : (
                 <ItemList productos={productos} />
             )}

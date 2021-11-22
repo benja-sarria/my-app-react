@@ -18,7 +18,6 @@
     );
     border: none;
     border-radius: 1em;
-    max-height: 27.5em;
     .card-img-top {
         border-radius: 1em 1em 0.25em 0.25em;
     }
@@ -27,17 +26,28 @@
         color: rgba(255, 255, 255, 0.808);
         .card-title {
         }
+        .main-page-text {
+        }
+        .main-page-title {
+            font-size: 1.5em;
+        }
         .card-text {
         }
         .divisor {
             opacity: 0.25;
         }
-        .view-more {
+        .link-text {
+            color: var(--globalGreenGradient1-background-color);
+            text-decoration: none;
             min-width: 100%;
             min-height: 1.5em;
-            border-color: var(--globalGreenGradient1-background-color);
-            color: var(--globalGreenGradient1-background-color);
-            border-radius: 0.5em;
+            .view-more {
+                min-width: 100%;
+                min-height: 1.5em;
+                border-color: var(--globalGreenGradient1-background-color);
+                color: var(--globalGreenGradient1-background-color);
+                border-radius: 0.5em;
+            }
         }
     }
 }

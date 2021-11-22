@@ -11,8 +11,30 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TemporaryDrawer from "../navDrawer/navDrawer.js";
 import "./navBar.scss";
+import { useState, useEffect } from "react";
 
-export default function ButtonAppBar() {
+export default function NavBar() {
+    const [logoSrc, setLogoSrc] = useState("./assets/images/logo.webp");
+    const [actualLocation, setActualLocation] = useState(
+        window.location.pathname
+    );
+    window.addEventListener("popstate", () => {
+        setActualLocation(window.location.pathname);
+    });
+
+    console.dir(window.location.pathname);
+
+    useEffect(() => {
+        console.log("detectando cambios de ruta");
+        console.log(actualLocation);
+        if (actualLocation === "/") {
+            setLogoSrc("./assets/images/logo.webp");
+        } else {
+            setLogoSrc("../assets/images/logo.webp");
+        }
+        console.log(logoSrc);
+    }, [logoSrc]);
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" className="appbarcontainer">
@@ -26,7 +48,7 @@ export default function ButtonAppBar() {
                         className="brand-container"
                     >
                         <img
-                            src="./assets/images/logo.webp"
+                            src={logoSrc}
                             alt="planet sushi logo"
                             className="sushi-logo"
                         />

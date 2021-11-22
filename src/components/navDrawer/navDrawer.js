@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { CartWidget } from "../cartWidget/cartWidget.js";
 import "./navDrawer.scss";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -52,7 +53,11 @@ export default function TemporaryDrawer() {
                             <ListItemText primary={text} />
                             {text === "Check-out" ? (
                                 <ListItemIcon className="cart-ico-container">
-                                    <CartWidget className="cartIco" />
+                                    <CartWidget
+                                        className="cartIco"
+                                        icon={<ShoppingCartIcon />}
+                                        showBadge="1"
+                                    />
                                 </ListItemIcon>
                             ) : (
                                 ""
