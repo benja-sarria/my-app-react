@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar/NavBar.js";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer.js";
 import FloatingActionButtons from "./components/FloatingBtn/FloatingActionButtons.js";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer.js";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { capitalizeFirstLetter } from "./helpers/capitalizeLetter.js";
 import { DiscoverContainer } from "./components/DiscoverContainer/DiscoverContainer.js";
 

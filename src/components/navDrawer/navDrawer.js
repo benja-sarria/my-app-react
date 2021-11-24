@@ -44,26 +44,26 @@ export default function TemporaryDrawer() {
             <List>
                 {["Productos", "Descubre", "Disfruta", `Check-out`].map(
                     (text, index) => (
-                        <Link
-                            to={
-                                text === "Productos"
-                                    ? "/"
-                                    : text === "Descubre"
-                                    ? "/discover"
-                                    : text === "Disfruta"
-                                    ? ""
-                                    : text === "Check-out"
-                                    ? ""
-                                    : ""
-                            }
-                            className="link-item"
+                        <ListItem
+                            button
+                            key={text}
+                            onClick={() => {
+                                console.log(`#${text}`);
+                            }}
                         >
-                            <ListItem
-                                button
-                                key={text}
-                                onClick={() => {
-                                    console.log(`#${text}`);
-                                }}
+                            <Link
+                                to={
+                                    text === "Productos"
+                                        ? "/"
+                                        : text === "Descubre"
+                                        ? "/discover"
+                                        : text === "Disfruta"
+                                        ? ""
+                                        : text === "Check-out"
+                                        ? ""
+                                        : ""
+                                }
+                                className="link-item"
                             >
                                 <ListItemText primary={text} />
                                 {text === "Check-out" ? (
@@ -77,19 +77,19 @@ export default function TemporaryDrawer() {
                                 ) : (
                                     ""
                                 )}
-                            </ListItem>
-                        </Link>
+                            </Link>
+                        </ListItem>
                     )
                 )}
             </List>
             <Divider />
             <List>
                 {["Contacto"].map((text, index) => (
-                    <Link to="/" className="link-item">
-                        <ListItem button key={text}>
+                    <ListItem button key={text}>
+                        <Link to="/" className="link-item">
                             <ListItemText primary={text} />
-                        </ListItem>
-                    </Link>
+                        </Link>
+                    </ListItem>
                 ))}
             </List>
         </Box>

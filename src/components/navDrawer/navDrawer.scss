@@ -33,6 +33,11 @@
             .css-10hburv-MuiTypography-root {
                 color: white;
             }
+            .link-item {
+                display: flex;
+                min-width: 100%;
+                justify-content: space-between;
+            }
         }
         .css-cveggr-MuiListItemIcon-root {
             color: white;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -6,25 +6,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import "./CategoryFilter.scss";
-import { styled, alpha } from "@mui/material/styles";
-import EditIcon from "@mui/icons-material/Edit";
-import Divider from "@mui/material/Divider";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Stack from "@mui/material/Stack";
-import { purple } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
 
 export const CategoryFilter = () => {
-    const ColorButton = styled(Button)(({ theme }) => ({
-        color: theme.palette.getContrastText(purple[500]),
-        backgroundColor: purple[500],
-        "&:hover": {
-            backgroundColor: purple[700],
-        },
-    }));
-
     const StyledMenu = styled((props) => (
         <Menu
             elevation={0}
@@ -69,10 +53,6 @@ export const CategoryFilter = () => {
         },
     }));
 
-    let navigate = useNavigate();
-    const [selectors, setSelectors] = useState(
-        document.querySelectorAll(".selector-item")
-    );
     const [selectorsLoaded, setSelectorsLoaded] = useState(false);
 
     // for the menu

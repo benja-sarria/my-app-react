@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import { ItemCount } from "../ItemCount/ItemCount.js";
 
 export const ItemCountEnabler = ({ stock, initial }) => {
-    const [disponibility, setDisponibility] = useState(Number(stock));
+    const [availability, setAvailability] = useState(Number(stock));
     let currentClassState = "disabled";
 
     useEffect(() => {
-        setDisponibility(Number(stock));
-        if (disponibility > 0) {
+        setAvailability(Number(stock));
+        if (availability > 0) {
             currentClassState = "able";
         } else {
             currentClassState = "disabled";
         }
     }, [stock]);
 
-    if (disponibility > 0) {
+    if (availability > 0) {
         currentClassState = "able";
     } else {
         currentClassState = "disabled";
@@ -22,7 +22,7 @@ export const ItemCountEnabler = ({ stock, initial }) => {
 
     return (
         <ItemCount
-            stock={disponibility}
+            stock={availability}
             currentClassState={currentClassState}
             initial={initial}
         />

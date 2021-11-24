@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-
-/* librería de material icons */
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 
 export const CartWidget = ({ icon, showBadge }) => {
     let counterNumber;
