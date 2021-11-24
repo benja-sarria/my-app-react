@@ -1,20 +1,31 @@
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.scss";
 import "./base/_baseStyles.scss";
-import NavBar from "./components/NavBar/navBar.js";
-import { ItemListContainer } from "./components/itemListContainer/itemListContainer.js";
-import FloatingActionButtons from "./components/floatingBtn/FloatingActionButtons.js";
+import NavBar from "./components/NavBar/NavBar.js";
+import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer.js";
+import FloatingActionButtons from "./components/FloatingBtn/FloatingActionButtons.js";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer.js";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { capitalizeFirstLetter } from "./helpers/capitalizeLetter.js";
+import { DiscoverContainer } from "./components/DiscoverContainer/DiscoverContainer.js";
 
 function App() {
+    let greeting;
     let userName = "Usuario";
+    const [actualCategory, setActualCategory] = useState("");
+
+    const personalizedGreeting = (param) => {
+        setActualCategory(param);
+        return greeting;
+    };
 
     return (
         <BrowserRouter className="app">
             <header className="App-header">
                 <NavBar />
             </header>
+
             <Routes>
                 <Route
                     path="/"
@@ -24,11 +35,31 @@ function App() {
                         />
                     }
                 />
+                <Route
+                    path="/category/:catID"
+                    element={
+                        <ItemListContainer
+                            greeting={`${
+                                actualCategory
+                                    ? `Maravíllate con los secretos de ${
+                                          actualCategory === "vajilla"
+                                              ? "nuestra"
+                                              : "nuestras"
+                                      } ${capitalizeFirstLetter(
+                                          actualCategory
+                                      )}`
+                                    : "Bienvenido a Planet Sushi"
+                            }!`}
+                            greetingFunction={personalizedGreeting}
+                        />
+                    }
+                />
 
                 <Route
                     path="/detail/:itemId"
                     element={<ItemDetailContainer />}
                 />
+                <Route path="/discover" element={<DiscoverContainer />} />
             </Routes>
             <FloatingActionButtons />
         </BrowserRouter>

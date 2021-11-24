@@ -12,8 +12,21 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        .sushi-logo {
-            max-width: 5em;
+        .brand-link {
+            text-decoration: none;
+            color: white;
+
+            .sushi-logo {
+                max-width: 5em;
+            }
         }
+    }
+}
+//
+
+.navbar-toolbar {
+    .link-item {
+        text-decoration: none;
+        color: white;
     }
 }

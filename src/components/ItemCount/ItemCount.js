@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ItemCounter.scss";
 import { Button } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { CartWidget } from "../cartWidget/cartWidget.js";
+import { CartWidget } from "../CartWidget/CartWidget.js";
 
 export const ItemCount = ({ stock, currentClassState, initial }) => {
     const [clicks, setClicks] = useState(Number(stock !== 0 ? initial : stock));

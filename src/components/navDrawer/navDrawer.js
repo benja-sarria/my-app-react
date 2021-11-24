@@ -8,9 +8,10 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import IconButton from "@mui/material/IconButton";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import { CartWidget } from "../cartWidget/cartWidget.js";
-import "./navDrawer.scss";
+import { CartWidget } from "../CartWidget/CartWidget.js";
+import "./NavDrawer.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -41,37 +42,54 @@ export default function TemporaryDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {["Crea", "Descubre", "Disfruta", `Check-out`].map(
+                {["Productos", "Descubre", "Disfruta", `Check-out`].map(
                     (text, index) => (
-                        <ListItem
-                            button
-                            key={text}
-                            onClick={() => {
-                                console.log(`#${text}`);
-                            }}
+                        <Link
+                            to={
+                                text === "Productos"
+                                    ? "/"
+                                    : text === "Descubre"
+                                    ? "/discover"
+                                    : text === "Disfruta"
+                                    ? ""
+                                    : text === "Check-out"
+                                    ? ""
+                                    : ""
+                            }
+                            className="link-item"
                         >
-                            <ListItemText primary={text} />
-                            {text === "Check-out" ? (
-                                <ListItemIcon className="cart-ico-container">
-                                    <CartWidget
-                                        className="cartIco"
-                                        icon={<ShoppingCartIcon />}
-                                        showBadge="1"
-                                    />
-                                </ListItemIcon>
-                            ) : (
-                                ""
-                            )}
-                        </ListItem>
+                            <ListItem
+                                button
+                                key={text}
+                                onClick={() => {
+                                    console.log(`#${text}`);
+                                }}
+                            >
+                                <ListItemText primary={text} />
+                                {text === "Check-out" ? (
+                                    <ListItemIcon className="cart-ico-container">
+                                        <CartWidget
+                                            className="cartIco"
+                                            icon={<ShoppingCartIcon />}
+                                            showBadge="1"
+                                        />
+                                    </ListItemIcon>
+                                ) : (
+                                    ""
+                                )}
+                            </ListItem>
+                        </Link>
                     )
                 )}
             </List>
             <Divider />
             <List>
                 {["Contacto"].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                    <Link to="/" className="link-item">
+                        <ListItem button key={text}>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    </Link>
                 ))}
             </List>
         </Box>

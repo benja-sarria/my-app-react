@@ -1,0 +1,83 @@
+.category-selector-container {
+    align-self: flex-end;
+    margin: 2em 1.5em 0em 1.5em;
+}
+#basic-button-1 {
+    border: 2px solid var(--globalGreenHighlight-background-color);
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgba(
+            var(--globalGreenHighlight-background-color-r),
+            var(--globalGreenHighlight-background-color-g),
+            var(--globalGreenHighlight-background-color-b),
+            0.1
+        );
+    }
+    .categories-text {
+        color: var(--globalGreenHighlight-background-color);
+        margin-right: 1em;
+        text-decoration: none;
+    }
+    .categories-icon {
+        color: var(--globalGreenHighlight-background-color);
+        text-decoration: none;
+    }
+}
+
+.basic-menu-1 {
+    .selector-item {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        transition: all 5000ms ease;
+        background-color: rgba(
+            var(--globalGreenHighlight-background-color-r),
+            var(--globalGreenHighlight-background-color-g),
+            var(--globalGreenHighlight-background-color-b),
+            0
+        );
+        background-image: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(
+                var(--globalGreenHighlight-background-color-r),
+                var(--globalGreenHighlight-background-color-g),
+                var(--globalGreenHighlight-background-color-b),
+                0
+            ),
+            transparent
+        );
+        &:hover {
+            background-color: rgba(
+                var(--globalGreenHighlight-background-color-r),
+                var(--globalGreenHighlight-background-color-g),
+                var(--globalGreenHighlight-background-color-b),
+                0.009
+            );
+            background-image: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(
+                    var(--globalGreenHighlight-background-color-r),
+                    var(--globalGreenHighlight-background-color-g),
+                    var(--globalGreenHighlight-background-color-b),
+                    0.1
+                ),
+                transparent
+            );
+            transition: all 5000ms ease;
+        }
+        .selector-link {
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .divisor {
+        color: var(--globalGreenHighlight-background-color);
+        opacity: 0.2;
+        max-width: 70%;
+        margin: 0 auto;
+    }
+}

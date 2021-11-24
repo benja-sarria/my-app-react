@@ -9,9 +9,10 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import TemporaryDrawer from "../navDrawer/navDrawer.js";
-import "./navBar.scss";
+import TemporaryDrawer from "../NavDrawer/NavDrawer.js";
+import "./NavBar.scss";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
     const [logoSrc, setLogoSrc] = useState("./assets/images/logo.webp");
@@ -38,7 +39,7 @@ export default function NavBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" className="appbarcontainer">
-                <Toolbar>
+                <Toolbar className="navbar-toolbar">
                     <TemporaryDrawer />
 
                     <Typography
@@ -47,16 +48,28 @@ export default function NavBar() {
                         sx={{ flexGrow: 1 }}
                         className="brand-container"
                     >
-                        <img
-                            src={logoSrc}
-                            alt="planet sushi logo"
-                            className="sushi-logo"
-                        />
-                        Planet Sushi
+                        <Link to="/" className="brand-link">
+                            <img
+                                src={logoSrc}
+                                alt="planet sushi logo"
+                                className="sushi-logo"
+                            />
+                            Planet Sushi
+                        </Link>
                     </Typography>
-                    <Button color="inherit">Crea</Button>
-                    <Button color="inherit">Descubre</Button>
-                    <Button color="inherit">Disfruta</Button>
+
+                    <Link to="/" className="link-item">
+                        <Button color="inherit">Productos</Button>
+                    </Link>
+                    <Link to="/discover" className="link-item">
+                        <Button color="inherit" className="link-item">
+                            Descubre
+                        </Button>
+                    </Link>
+
+                    <Button color="inherit" className="link-item">
+                        Disfruta
+                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>

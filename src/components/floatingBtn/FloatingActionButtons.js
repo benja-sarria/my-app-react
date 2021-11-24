@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
-import { CartWidget } from "../cartWidget/cartWidget.js";
+import { CartWidget } from "../CartWidget/CartWidget.js";
 import "./FloatingActionButtons.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
