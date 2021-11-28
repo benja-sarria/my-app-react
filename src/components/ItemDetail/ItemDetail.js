@@ -13,13 +13,21 @@ import {
 import { CartWidget } from "../CartWidget/CartWidget.js";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export const ItemDetail = ({ id, name, desc, price, img, category, stock }) => {
+export const ItemDetail = ({
+    id,
+    name,
+    price,
+    img,
+    category,
+    stock,
+    description,
+}) => {
     const [cartQuantity, setCartQuantity] = useState(0);
     const { addCart, isInCart, accountTotal } = useContext(CartContext);
 
     const handleAdd = () => {
         if (cartQuantity > 0) {
-            addCart({ id, name, price, cartQuantity });
+            addCart({ id, name, price, cartQuantity, img, description });
         }
     };
 
@@ -46,7 +54,9 @@ export const ItemDetail = ({ id, name, desc, price, img, category, stock }) => {
             <img src={img} alt={name} className="card-img-top" />
             <div className="card-body">
                 <h5 className="card-title detail-page-title">{name}</h5>
-                <p className="card-text detail-page-text">{desc}</p>
+                <p className="card-text detail-page-text description-page-text">
+                    {description}
+                </p>
                 <p className="card-text detail-page-text">$ &nbsp; {price}</p>
                 <p className="card-text detail-page-text">{category}</p>
                 <hr className="divisor" />

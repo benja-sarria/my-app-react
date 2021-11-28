@@ -11,14 +11,19 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import TemporaryDrawer from "../NavDrawer/NavDrawer.js";
 import "./NavBar.scss";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { PathRoute } from "../Context/PathRoute/PathRoute.js";
 
 export default function NavBar({ addedProducts }) {
     const [logoSrc, setLogoSrc] = useState("./assets/images/logo.webp");
     const [actualLocation, setActualLocation] = useState(
         window.location.pathname
     );
+
+    const { actualCategory, setActualCategory, usePathname } =
+        useContext(PathRoute);
+
     window.addEventListener("popstate", () => {
         setActualLocation(window.location.pathname);
     });

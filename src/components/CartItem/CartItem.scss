@@ -1,0 +1,84 @@
+.cart-item-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid
+        rgba(
+            var(--globalGreenHighlight-background-color-r),
+            var(--globalGreenHighlight-background-color-g),
+            var(--globalGreenHighlight-background-color-b),
+            0.35
+        );
+    .css-1k9ek97 {
+        background-color: transparent;
+        display: flex;
+        align-items: flex-start;
+        border-right: 2px solid
+            rgba(
+                var(--globalGreenHighlight-background-color-r),
+                var(--globalGreenHighlight-background-color-g),
+                var(--globalGreenHighlight-background-color-b),
+                0.35
+            );
+        .css-h4y409-MuiList-root {
+            min-width: 80vw;
+            max-width: 80vw;
+            border-right: 2px solid
+                rgba(
+                    var(--globalGreenHighlight-background-color-r),
+                    var(--globalGreenHighlight-background-color-g),
+                    var(--globalGreenHighlight-background-color-b),
+                    0.25
+                );
+
+            .css-1rki8sg-MuiListItem-root {
+                .css-518kzi-MuiListItemSecondaryAction-root {
+                    .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+                        color: var(--globalGreenHighlight-background-color);
+                    }
+                }
+                .css-konndc-MuiListItemText-root {
+                    .css-83ijpv-MuiTypography-root {
+                        font-size: 0.8em;
+                        color: white;
+                        max-width: 80%;
+                        text-align: justify;
+                        padding: 1em;
+                    }
+                    .css-10hburv-MuiTypography-root {
+                        font-size: 1.5em;
+                    }
+                }
+                .css-1e9lk82-MuiListItemAvatar-root {
+                    .css-2s90m6-MuiAvatar-root {
+                        min-width: 5em;
+                        min-height: 5em;
+                        img {
+                        }
+                    }
+                }
+            }
+        }
+    }
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .cart-info-container {
+        .cart-item-text {
+        }
+        .text-title {
+        }
+    }
+    .cart-description-container {
+        min-width: 45%;
+        padding: 1em;
+    }
+    .cart-image-container {
+        max-width: 15%;
+        padding: 1em;
+    }
+    .cart-price-container {
+        max-width: 15%;
+        padding: 1em;
+    }
+}

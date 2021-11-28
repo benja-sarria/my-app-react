@@ -70,6 +70,7 @@ export const CartContextProvider = ({
                 ditchCart,
                 isInCart,
                 accountTotal,
+                totalCompras,
             }}
         >
             {children}
