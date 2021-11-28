@@ -27,22 +27,9 @@ function App() {
         window.location.pathname
     );
     console.log(actualCategory);
-    // const { totalCart } = useContext(CartContext);
-
-    const modifyingCategory = () => {
-        setActualCategory(window.location.pathname);
-        console.log(actualCategory);
-    };
-
-    window.addEventListener("click", modifyingCategory);
 
     useEffect(() => {
-        window.addEventListener("click", modifyingCategory);
-        console.log(actualCategory);
-
-        return () => {
-            window.removeEventListener("click", modifyingCategory);
-        };
+        return () => {};
     }, [actualCategory]);
 
     window.addEventListener("popstate", () => {

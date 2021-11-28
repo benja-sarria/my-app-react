@@ -21,9 +21,6 @@ export default function NavBar({ addedProducts }) {
         window.location.pathname
     );
 
-    const { actualCategory, setActualCategory, usePathname } =
-        useContext(PathRoute);
-
     window.addEventListener("popstate", () => {
         setActualLocation(window.location.pathname);
     });

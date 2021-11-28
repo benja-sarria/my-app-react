@@ -2,12 +2,18 @@ import React, { useContext, useEffect } from "react";
 import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
 import { CartItem } from "../CartItem/CartItem.js";
 import "./CartView.scss";
+import { PathRoute } from "../Context/PathRoute/PathRoute.js";
 
 export const CartView = () => {
     const { cart, ditchCart, totalCompras } = useContext(CartContext);
 
+    const { actualCategory, setActualCategory } = useContext(PathRoute);
+
     useEffect(() => {
-        return () => {};
+        setActualCategory(window.location.pathname);
+        return () => {
+            setActualCategory(window.location.pathname);
+        };
     }, [cart]);
     return (
         <div>
