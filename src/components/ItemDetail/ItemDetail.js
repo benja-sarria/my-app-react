@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { ItemCountEnabler } from "../ItemCountEnabler/ItemCountEnabler.js";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./ItemDetail.scss";
+import { ItemCount } from "../ItemCount/ItemCount.js";
+import {
+    CartContextProvider,
+    CartContext,
+} from "../Context/CartContextProvider/CartContextProvider.js";
+import { CartWidget } from "../CartWidget/CartWidget.js";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export const ItemDetail = ({ id, name, desc, price, img, category }) => {
-    // para volver atrás con hooks de react
+export const ItemDetail = ({ id, name, desc, price, img, category, stock }) => {
+    const [cartQuantity, setCartQuantity] = useState(0);
+    const { addCart, isInCart, accountTotal } = useContext(CartContext);
+
+    const handleAdd = () => {
+        if (cartQuantity > 0) {
+            addCart({ id, name, price, cartQuantity });
+        }
+    };
+
     const navigate = useNavigate();
 
     const handleVolver = () => {
@@ -34,7 +50,25 @@ export const ItemDetail = ({ id, name, desc, price, img, category }) => {
                 <p className="card-text detail-page-text">$ &nbsp; {price}</p>
                 <p className="card-text detail-page-text">{category}</p>
                 <hr className="divisor" />
-                <ItemCountEnabler stock="5" initial="0" />
+                {!isInCart(id) ? (
+                    <ItemCount
+                        max={stock}
+                        initial="0"
+                        cartQuantity={cartQuantity}
+                        setQuantity={setCartQuantity}
+                        handleAdd={handleAdd}
+                    />
+                ) : (
+                    <Link to="/cart" className="btn btn-success checkout-btn">
+                        <p className="checkout-text">Terminar mi compra </p>
+                        <CartWidget
+                            specialClass=""
+                            icon={<ShoppingCartIcon />}
+                            showBadge="0"
+                            addedProducts={`${accountTotal()}`}
+                        />
+                    </Link>
+                )}
             </div>
         </article>
     );

@@ -19,3 +19,34 @@
         }
     }
 }
+
+.cart-widget-container {
+    display: flex;
+    .counter-number {
+        color: white;
+        // position: absolute;
+    }
+    .specialClass {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--globalContrastHighlight-background-color-two);
+        border-radius: 2em;
+        min-width: 1.3em;
+        max-width: 1.3em;
+        min-height: 1.3em;
+        max-height: 1.3em;
+    }
+    .floating {
+        position: absolute;
+        top: 0.5em;
+        left: 2em;
+    }
+    .invisible {
+        display: none;
+    }
+    .visible {
+        display: flex;
+    }
+}

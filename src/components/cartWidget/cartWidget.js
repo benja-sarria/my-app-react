@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
+import "./CartWidget.scss";
 
-export const CartWidget = ({ icon, showBadge }) => {
+export const CartWidget = ({
+    icon,
+    showBadge,
+    addedProducts,
+    specialClass,
+    show,
+}) => {
     let counterNumber;
-    console.log(counterNumber);
-    console.dir(counterNumber);
-    const [invisible, setInvisible] = React.useState(true);
-    const [productQuantity, setProductQuantity] = useState(2);
+    console.log(addedProducts);
+    const [invisible, setInvisible] = useState(true);
+    const [productQuantity, setProductQuantity] = useState(0);
+    console.log(productQuantity);
     const handleBadgeVisibility = () => {
         if (productQuantity > 0) {
             setInvisible(false);
@@ -38,23 +45,37 @@ export const CartWidget = ({ icon, showBadge }) => {
         console.log(
             `la cantidad del estado es de: ${productQuantity}, y lo que recibo por props es de ${0}`
         );
-
+        setProductQuantity(addedProducts);
         // if a product was added
 
-        console.log();
-    }, []);
+        console.log(productQuantity);
+    }, [addedProducts]);
 
     return (
-        <>
-            <StyledBadge
-                badgeContent={productQuantity}
-                color="secondary"
-                className="badge-icon"
-                invisible={productQuantity > 0 ? false : true}
-                aria-label="product-quantity"
+        <div className="cart-widget-container">
+            {icon}
+            <div
+                className={`counter-number ${
+                    specialClass && specialClass
+                } ${show}`}
             >
-                {icon}
-            </StyledBadge>
-        </>
+                {addedProducts}
+            </div>
+        </div>
     );
 };
+
+{
+    /* <>
+    <StyledBadge
+        badgeContent={productQuantity === "undefined" ? 1 : productQuantity}
+        color="secondary"
+        className="badge-icon"
+        invisible={false}
+        aria-label="product-quantity"
+    >
+        {icon}
+    </StyledBadge>
+</>;
+ */
+}

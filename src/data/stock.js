@@ -6,6 +6,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 1000,
             img: `https://source.unsplash.com/featured/200x150/?sashimi`,
+            stock: 15,
         },
         {
             id: 2,
@@ -13,6 +14,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 3000,
             img: "https://source.unsplash.com/featured/200x150/?sushi,sushi%20roll,food",
+            stock: 15,
         },
         {
             id: 3,
@@ -20,6 +22,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 12000,
             img: "https://source.unsplash.com/featured/200x150/?ramen,soup",
+            stock: 15,
         },
         {
             id: 4,
@@ -27,6 +30,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 16000,
             img: "https://source.unsplash.com/featured/200x150/?soba,noodles",
+            stock: 15,
         },
         {
             id: 5,
@@ -34,6 +38,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 200000,
             img: "https://source.unsplash.com/featured/200x150/?japanese%20dish",
+            stock: 15,
         },
         {
             id: 6,
@@ -41,6 +46,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 800000,
             img: "https://source.unsplash.com/featured/200x150/?tamago,japanese%20dish",
+            stock: 15,
         },
     ],
     bebidas: [
@@ -50,6 +56,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 1000,
             img: `https://source.unsplash.com/featured/200x150/?glass%20of%20water`,
+            stock: 15,
         },
         {
             id: 8,
@@ -57,6 +64,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 3000,
             img: "https://source.unsplash.com/featured/200x150/?beer",
+            stock: 15,
         },
         {
             id: 9,
@@ -64,6 +72,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 12000,
             img: "https://source.unsplash.com/featured/200x150/?sake",
+            stock: 15,
         },
         {
             id: 10,
@@ -71,6 +80,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 16000,
             img: "https://source.unsplash.com/featured/200x150/?champagne",
+            stock: 15,
         },
         {
             id: 11,
@@ -78,6 +88,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 200000,
             img: "https://source.unsplash.com/featured/200x150/?martini",
+            stock: 15,
         },
         {
             id: 12,
@@ -85,6 +96,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 800000,
             img: "https://source.unsplash.com/featured/200x150/?whiskey",
+            stock: 15,
         },
     ],
     vajilla: [
@@ -94,6 +106,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 1000,
             img: `https://source.unsplash.com/featured/200x150/?dish%20cutlery`,
+            stock: 15,
         },
         {
             id: 14,
@@ -101,6 +114,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 3000,
             img: "https://source.unsplash.com/featured/200x150/?chinesse%20sticks",
+            stock: 15,
         },
         {
             id: 15,
@@ -108,6 +122,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 12000,
             img: "https://source.unsplash.com/featured/200x150/?crystal%20drink%20glass",
+            stock: 15,
         },
         {
             id: 16,
@@ -115,6 +130,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 16000,
             img: "https://source.unsplash.com/featured/200x150/?knife",
+            stock: 15,
         },
         {
             id: 17,
@@ -122,6 +138,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 200000,
             img: "https://source.unsplash.com/featured/200x150/?apron,kitchen%20apron",
+            stock: 15,
         },
         {
             id: 18,
@@ -129,6 +146,7 @@ export const stock = {
             desc: "lorem ipsum",
             price: 800000,
             img: "https://source.unsplash.com/featured/200x150/?wok",
+            stock: 15,
         },
     ],
 };

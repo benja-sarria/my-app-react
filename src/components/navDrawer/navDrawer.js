@@ -13,7 +13,7 @@ import "./NavDrawer.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({ addedProd }) {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -72,6 +72,13 @@ export default function TemporaryDrawer() {
                                             className="cartIco"
                                             icon={<ShoppingCartIcon />}
                                             showBadge="1"
+                                            addedProducts={addedProd}
+                                            specialClass="specialClass"
+                                            show={
+                                                addedProd > 0
+                                                    ? "visible"
+                                                    : "invisible"
+                                            }
                                         />
                                     </ListItemIcon>
                                 ) : (

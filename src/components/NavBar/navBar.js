@@ -14,7 +14,7 @@ import "./NavBar.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar({ addedProducts }) {
     const [logoSrc, setLogoSrc] = useState("./assets/images/logo.webp");
     const [actualLocation, setActualLocation] = useState(
         window.location.pathname
@@ -40,7 +40,7 @@ export default function NavBar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" className="appBarContainer">
                 <Toolbar className="navbar-toolbar">
-                    <TemporaryDrawer />
+                    <TemporaryDrawer addedProd={addedProducts} />
 
                     <Typography
                         variant="h6"

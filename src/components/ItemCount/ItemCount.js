@@ -1,66 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./ItemCounter.scss";
 import { Button } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { CartWidget } from "../CartWidget/CartWidget.js";
+import {
+    CartContextProvider,
+    CartContext,
+} from "../Context/CartContextProvider/CartContextProvider.js";
 
-export const ItemCount = ({ stock, currentClassState, initial }) => {
-    const [clicks, setClicks] = useState(Number(stock !== 0 ? initial : stock));
-    const [cartQuantity, setCartQuantity] = useState(0);
-    let targetClasslist;
+export const ItemCount = ({
+    max,
+    initial,
+    cartQuantity,
+    setQuantity,
+    handleAdd,
+}) => {
+    const { accountTotal } = useContext(CartContext);
 
-    const handleClicks = (evt) => {
-        console.log(evt);
-
-        if (evt.target.nodeName === "BUTTON") {
-            targetClasslist = evt.target.classList;
-        } else if (evt.target.nodeName === "P") {
-            targetClasslist = evt.target.parentNode.classList;
-        }
-
-        if (stock > 0) {
-            if (targetClasslist.contains("increase")) {
-                if (clicks + 1 <= stock) {
-                    setClicks(clicks + 1);
-                    console.log(clicks + 1);
-                }
-            } else {
-                clicks >= 1 && setClicks(clicks - 1);
-                console.log(clicks - 1);
-            }
-        } else {
-            setClicks(0);
+    const handleSubtracting = () => {
+        if (cartQuantity > 0) {
+            setQuantity(cartQuantity - 1);
         }
     };
-
-    const addingToCart = () => {
-        setCartQuantity(clicks);
-        console.log(clicks);
-        console.log(
-            `La cantidad de productos en el carrito es de ${cartQuantity}`
-        );
+    const handleAdding = () => {
+        cartQuantity < max && setQuantity(cartQuantity + 1);
     };
-
-    useEffect(() => {
-        setCartQuantity(clicks);
-    }, [clicks]);
 
     return (
-        <div className={`item-controls-container ${currentClassState}`}>
+        <div className={`item-controls-container `}>
             <div className="item-count-container">
                 <button
                     className="item-count-btn decrease"
-                    onClick={handleClicks}
+                    onClick={handleSubtracting}
                 >
                     <p> - </p>
                 </button>
                 <div className="item-counter">
-                    <p className="counter-number">{clicks}</p>
+                    <p className="counter-number">{cartQuantity}</p>
                 </div>
 
                 <button
                     className="item-count-btn increase"
-                    onClick={handleClicks}
+                    onClick={handleAdding}
                 >
                     {" "}
                     <p> + </p>
@@ -70,9 +51,13 @@ export const ItemCount = ({ stock, currentClassState, initial }) => {
                 <Button
                     variant="outlined"
                     className="add-to-cart-btn"
-                    onClick={addingToCart}
+                    onClick={handleAdd}
                 >
-                    <CartWidget icon={<AddShoppingCartIcon />} showBadge="0" />
+                    <CartWidget
+                        icon={<AddShoppingCartIcon />}
+                        showBadge="0"
+                        specialClass=""
+                    />
                     &nbsp; Añadir al carrito
                 </Button>
             </div>
