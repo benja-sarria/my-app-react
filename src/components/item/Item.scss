@@ -24,7 +24,10 @@
     .card-body {
         padding: 1.5em;
         color: rgba(255, 255, 255, 0.808);
+
         .card-title {
+            flex-wrap: wrap;
+            max-width: 20vw;
         }
         .main-page-text {
         }

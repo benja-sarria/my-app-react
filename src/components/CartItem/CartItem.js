@@ -24,11 +24,17 @@ export const CartItem = (prod) => {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
 
+    const handlingItemRemoval = () => {
+        setTimeout(() => {
+            removeCartItem(prod.id);
+        }, 500);
+    };
+
     const Demo = styled("div")(({ theme }) => ({
         backgroundColor: theme.palette.background.paper,
     }));
 
-    const { cart, ditchCart } = useContext(CartContext);
+    const { cart, ditchCart, removeCartItem } = useContext(CartContext);
 
     return (
         <div className="cart-item-container">
@@ -46,7 +52,11 @@ export const CartItem = (prod) => {
                 <List dense={dense}>
                     <ListItem
                         secondaryAction={
-                            <IconButton edge="end" aria-label="delete">
+                            <IconButton
+                                edge="end"
+                                aria-label="delete"
+                                onClick={handlingItemRemoval}
+                            >
                                 <DeleteIcon />
                             </IconButton>
                         }

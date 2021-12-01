@@ -11,12 +11,22 @@ export const CartContextProvider = ({
     console.log(acrossCount);
     const [cart, setCart] = useState([]);
 
+    const isInCart = (id) => {
+        // el método some recorre el array de mi carrito y me devuelve true or false si encuentra el elemento que tiene una propiedad id
+        return cart.some((prod) => {
+            console.log(prod);
+            return prod.id === id;
+        });
+    };
+
     /* funciones para manipular el carrito */
     const addCart = (item) => {
         console.log(item);
-        // para mandar una nueva instancia sin mutar carrito tengo que pasarle el item de la siguiente manera
-        setCart([...cart, item]);
-        console.log(cart);
+        if (!isInCart(item.id)) {
+            // para mandar una nueva instancia sin mutar carrito tengo que pasarle el item de la siguiente manera
+            setCart([...cart, item]);
+            console.log(cart);
+        }
     };
 
     const removeCartItem = (id) => {
@@ -25,14 +35,6 @@ export const CartContextProvider = ({
 
     const ditchCart = () => {
         setCart([]);
-    };
-
-    const isInCart = (id) => {
-        // el método some recorre el array de mi carrito y me devuelve true or false si encuentra el elemento que tiene una propiedad id
-        return cart.some((prod) => {
-            console.log(prod);
-            return prod.id === id;
-        });
     };
 
     const totalCart = () => {

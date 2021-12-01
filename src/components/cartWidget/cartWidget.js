@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import "./CartWidget.scss";
@@ -38,9 +38,9 @@ export const CartWidget = ({
         setProductQuantity(+2);
         console.log(productQuantity);
     };
+    const CounterNumber = useRef(null);
 
     useEffect(() => {
-        counterNumber = document.querySelector(".counter-number");
         console.log("actualizando cantidad del carrito");
         console.log(
             `la cantidad del estado es de: ${productQuantity}, y lo que recibo por props es de ${0}`
@@ -55,6 +55,7 @@ export const CartWidget = ({
         <div className="cart-widget-container">
             {icon}
             <div
+                ref={CounterNumber}
                 className={`counter-number ${
                     specialClass && specialClass
                 } ${show}`}

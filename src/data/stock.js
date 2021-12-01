@@ -176,10 +176,10 @@ export const stock = {
         },
         {
             id: 18,
-            name: "Makiyakinabe",
+            name: "Maki-yakinabe",
             desc: "lorem ipsum",
             price: 800000,
-            img: "https://source.unsplash.com/featured/200x150/?makiyakinabe",
+            img: "https://source.unsplash.com/featured/200x150/?frying%20pan",
             stock: 15,
             description:
                 "El makiyakinabe (Japonés: 巻き焼き鍋; まきやきなべ, literalmente: enrollar-hornear-sartén) o tamagoyakiki (玉子焼き器; たまごやきき, literalmente: utensilio para hacer tortillas) es una sartén cuadrada o rectangular para hacer tortillas enrolladas de estilo japonés llamadas tamagoyaki.",
