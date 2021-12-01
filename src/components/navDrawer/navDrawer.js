@@ -60,7 +60,7 @@ export default function TemporaryDrawer({ addedProd }) {
                                         : text === "Disfruta"
                                         ? ""
                                         : text === "Check-out"
-                                        ? ""
+                                        ? "/cart"
                                         : ""
                                 }
                                 className="link-item"

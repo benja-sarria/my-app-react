@@ -1,11 +1,12 @@
 .details-container {
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
-    align-items: stretch;
+    justify-content: flex-start;
+    align-items: center;
     max-width: 50vw;
     margin: 2em auto;
     min-height: 120vh;
+    margin-top: 1.5em;
 
     .loading-sign {
         text-align: center;

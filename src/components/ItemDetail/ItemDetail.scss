@@ -1,4 +1,7 @@
 .card {
+    @media (min-width: 1300px) {
+        max-width: 35vw;
+    }
     .back-btn {
         color: white;
         text-decoration: none;
@@ -13,7 +16,22 @@
             font-size: 1em;
         }
     }
-    .card-img-top {
+    .img-container {
+        max-height: 35vh;
+        overflow-y: hidden;
+        .card-img-top {
+            position: relative;
+            @media (min-width: 1300px) {
+                bottom: 15vh;
+            }
+            @media (min-width: 590px) and (max-width: 730px) {
+                bottom: 8vh;
+            }
+            @media (min-width: 730px) and (max-width: 1300px) {
+                bottom: 15vh;
+            }
+            bottom: 0vh;
+        }
     }
     .card-body {
         display: flex;
@@ -49,6 +67,8 @@
         }
         .description-page-text {
             font-size: 1em;
+            max-height: 20vh;
+            overflow-y: scroll;
         }
         .divisor {
             background-color: var(--globalGreenHighlight-background-color);

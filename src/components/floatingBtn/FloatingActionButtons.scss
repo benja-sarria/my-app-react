@@ -2,6 +2,7 @@
     min-width: 8em;
 
     .css-hz2c15-MuiButtonBase-root-MuiFab-root {
+        // transition: all 3000ms ease;
         position: fixed;
         bottom: 4vh;
         right: 3vw;
@@ -12,4 +13,14 @@
         /* .css-i4bv87-MuiSvgIcon-root {
         } */
     }
+}
+
+.showFloating {
+    opacity: 1;
+    transition: all 3000ms ease;
+}
+
+.hideFloating {
+    opacity: 0;
+    transition: all 3000ms ease;
 }

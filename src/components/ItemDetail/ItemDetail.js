@@ -51,7 +51,9 @@ export const ItemDetail = ({
                 <ArrowBackIcon />
                 <span className="back-text"> Atrás</span>
             </IconButton>
-            <img src={img} alt={name} className="card-img-top" />
+            <div className="img-container">
+                <img src={img} alt={name} className="card-img-top" />
+            </div>
             <div className="card-body">
                 <h5 className="card-title detail-page-title">{name}</h5>
                 <p className="card-text detail-page-text description-page-text">
