@@ -11,6 +11,7 @@
     // margin-left: 0.25em;
     color: var(--globalGreenHighlight-background-color);
     margin-left: 0.25em;
+    font-weight: 200;
 }
 
 .glitch-container {
@@ -39,6 +40,7 @@
     // animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
     //         calc(var(--index) * 120ms),
     //     glitch 2s ease infinite 2s alternate-reverse;
+    font-weight: 400;
 }
 
 .stack-0 {
