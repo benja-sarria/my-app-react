@@ -58,9 +58,11 @@ export const CartContextProvider = ({
     console.log(accountTotal());
 
     const totalCompras = () => {
-        return cart.reduce((accumulator, product) => {
-            return accumulator + product.price * product.cartQuantity;
-        }, 0);
+        return Intl.NumberFormat().format(
+            cart.reduce((accumulator, product) => {
+                return accumulator + product.price * product.cartQuantity;
+            }, 0)
+        );
     };
 
     return (

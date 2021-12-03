@@ -59,7 +59,9 @@ export const ItemDetail = ({
                 <p className="card-text detail-page-text description-page-text">
                     {description}
                 </p>
-                <p className="card-text detail-page-text">$ &nbsp; {price}</p>
+                <p className="card-text detail-page-text">
+                    $ &nbsp; {Intl.NumberFormat().format(price)}
+                </p>
                 <p className="card-text detail-page-text">{category}</p>
                 <hr className="divisor" />
                 {!isInCart(id) ? (

@@ -13,7 +13,9 @@ export const Item = ({ id, name, desc, price, img }) => {
                 <h5 className="card-title main-page-title">{name}</h5>
                 <hr className="divisor" />
                 <p className="card-text main-page-text">{desc}</p>
-                <p className="card-text main-page-text">{`$ ${price}`}</p>
+                <p className="card-text main-page-text">{`$ ${Intl.NumberFormat().format(
+                    price
+                )}`}</p>
                 <br />
                 <Link to={`/detail/${id}`} className="link-text">
                     <Button variant="outlined" className="view-more">

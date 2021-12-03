@@ -7,8 +7,9 @@
     -webkit-backdrop-filter: blur(7px);
     background-color: rgba(0, 0, 0, 0.5);
     background-position: -5em;
-    min-width: 98vw;
-    min-height: 98vh;
+    min-width: 99.8vw;
+    min-height: 100vh;
+    margin-left: 0.05em;
     pointer-events: none;
     transition: opacity 500ms ease-in-out;
 }
@@ -16,6 +17,7 @@
     opacity: 1;
     min-width: 100vw;
     min-height: 100vh;
+    margin-left: 0em;
 }
 .hidden {
     opacity: 0;

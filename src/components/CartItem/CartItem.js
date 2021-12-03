@@ -17,6 +17,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
 
 export const CartItem = ({ prod, setLoading }) => {
     console.log(useContext(CartContext));
@@ -32,6 +33,15 @@ export const CartItem = ({ prod, setLoading }) => {
             setLoading(true);
         }, 200);
     };
+
+    const itemBlock = (
+        <>
+            <Link to={`/detail/${prod.id}`} className="product-link">
+                {prod.name} - en carrito: &nbsp;
+            </Link>
+            {prod.cartQuantity} unidades
+        </>
+    );
 
     const Demo = styled("div")(({ theme }) => ({
         backgroundColor: theme.palette.background.paper,
@@ -70,10 +80,14 @@ export const CartItem = ({ prod, setLoading }) => {
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText
-                            primary={`${prod.name} - en carrito: ${prod.cartQuantity} unidades`}
+                            primary={itemBlock}
                             secondary={
                                 prod.description
-                                    ? `${prod.description} - Precio por unidad: $${prod.price}`
+                                    ? `${
+                                          prod.description
+                                      } - Precio por unidad: $${Intl.NumberFormat().format(
+                                          prod.price
+                                      )}`
                                     : null
                             }
                         />
@@ -82,7 +96,8 @@ export const CartItem = ({ prod, setLoading }) => {
             </Demo>
             <div className="cart-info-container cart-price-container">
                 <p className="cart-item-text">
-                    $ {prod.price * prod.cartQuantity}
+                    ${" "}
+                    {Intl.NumberFormat().format(prod.price * prod.cartQuantity)}
                 </p>
             </div>
         </div>
