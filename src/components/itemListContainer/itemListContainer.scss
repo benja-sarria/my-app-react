@@ -12,6 +12,12 @@
         letter-spacing: -0.025em;
         text-shadow: 0px 2px 50px
             var(--globalContrastHighlight-background-color-two);
+        .special-msg {
+            color: var(--globalGreenHighlight-background-color);
+        }
+    }
+    .long-section {
+        font-size: 3.75em;
     }
     .item-list {
         display: flex;

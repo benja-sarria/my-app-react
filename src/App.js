@@ -21,7 +21,7 @@ import { CartView } from "./components/CartView/CartView.js";
 import { PathRoute } from "./components/Context/PathRoute/PathRoute.js";
 
 function App() {
-    let greeting;
+    let greeting, greetingMsg;
     let userName = "Usuario";
     const [actualCategory, setActualCategory] = useState(
         window.location.pathname
@@ -40,7 +40,7 @@ function App() {
 
     const personalizedGreeting = (param) => {
         setActualCategory(param);
-        return greeting;
+        return greetingMsg;
     };
 
     return (
@@ -59,7 +59,8 @@ function App() {
                             path="/"
                             element={
                                 <ItemListContainer
-                                    greeting={`Te damos la bienvenida ${userName}! `}
+                                    greetingMsg={`Te damos la bienvenida `}
+                                    msgName={`${userName}!`}
                                 />
                             }
                         />
@@ -67,18 +68,23 @@ function App() {
                             path="/category/:catID"
                             element={
                                 <ItemListContainer
-                                    greeting={`${
+                                    greetingMsg={`${
                                         actualCategory
                                             ? `Maravíllate con los secretos de ${
                                                   actualCategory === "vajilla"
                                                       ? "nuestra"
                                                       : "nuestras"
-                                              } ${capitalizeFirstLetter(
-                                                  actualCategory
-                                              )}`
-                                            : "Bienvenido a Planet Sushi"
-                                    }!`}
+                                              }`
+                                            : `Te damos la bienvenida `
+                                    } `}
                                     greetingFunction={personalizedGreeting}
+                                    msgName={
+                                        actualCategory
+                                            ? `${capitalizeFirstLetter(
+                                                  actualCategory
+                                              )}!`
+                                            : `${userName}!`
+                                    }
                                 />
                             }
                         />

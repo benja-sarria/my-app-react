@@ -1,0 +1,119 @@
+.right {
+    text-align: right;
+    width: 100%;
+}
+
+.stack {
+    /* display: grid;
+    -ms-display: -ms-grid;
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr; */
+    // margin-left: 0.25em;
+    color: var(--globalGreenHighlight-background-color);
+    margin-left: 0.25em;
+}
+
+.glitch-container {
+    display: flex;
+    align-items: flex-end;
+    .text-sign {
+        align-self: flex-end;
+        color: var(--globalContrastHighlight-background-color-four);
+        font-size: 3rem;
+        margin-bottom: 0em;
+        font-weight: 250;
+        padding-right: 4em;
+    }
+}
+
+.stack span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    position: relative;
+    --stack-height: calc(100% / 3 - 1px);
+    // --inverse-index: calc(calc(3 - 1) - var(--index));
+    // --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    // animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
+    //         calc(var(--index) * 120ms),
+    //     glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.stack-0 {
+    --inverse-index: calc(calc(3 - 1) - 0);
+    --clip-top: calc(var(--stack-height) * 0);
+    animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
+            calc(0 * 120ms),
+        glitch 2s ease infinite 2s alternate-reverse;
+    position: absolute !important;
+}
+.stack-1 {
+    --inverse-index: calc(calc(3 - 1) - 1);
+    --clip-top: calc(var(--stack-height) * 1);
+    animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
+            calc(1 * 120ms),
+        glitch 2s ease infinite 2s alternate-reverse;
+    position: absolute !important;
+}
+.stack-2 {
+    --inverse-index: calc(calc(3 - 1) - 2);
+    --clip-top: calc(var(--stack-height) * 2);
+    animation: stack 340ms cubic-bezier(0.46, 0.29, 0, 1.24) 1 backwards
+            calc(2 * 120ms),
+        glitch 2s ease infinite 2s alternate-reverse;
+    position: absolute !important;
+}
+
+.stack span:nth-child(odd) {
+    --glitch-translate: 8px;
+}
+.stack span:nth-child(even) {
+    --glitch-translate: -8px;
+}
+
+@keyframes stack {
+    0% {
+        color: var(--globalGreenHighlight-background-color);
+        opacity: 0;
+        transform: translateX(-50%);
+        text-shadow: -2px 3px 0
+                var(--globalContrastHighlight-background-color-two),
+            2px -3px 0 blue;
+    }
+    60% {
+        color: var(--globalGreenHighlight-background-color-glitch);
+
+        opacity: 0.5;
+        transform: translateX(50%);
+    }
+    80% {
+        color: var(--globalGreenHighlight-background-color-glitch);
+        transform: none;
+        opacity: 1;
+        text-shadow: 2px -3px 0 var(--globalContrastHighlight-background-color-two),
+            -2px 3px 0 blue;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: -2px 3px 0
+                var(--globalContrastHighlight-background-color-two),
+            2px -3px 0 blue;
+        transform: translate(var(--glitch-translate));
+    }
+    2% {
+        text-shadow: 2px -3px 0 var(--globalContrastHighlight-background-color-two),
+            -2px 3px 0 blue;
+    }
+    4%,
+    100% {
+        text-shadow: none;
+        transform: none;
+    }
+}

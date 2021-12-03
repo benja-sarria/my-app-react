@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router";
-
 import "./ItemListContainer.scss";
 import { ItemProcessor } from "../ItemProcessor/ItemProcessor.js";
 import { CategoryFilter } from "../CategoryFilter/CategoryFilter.js";
+import { GlitchEffect } from "../GlitchEffect/GlitchEffect.js";
 
-export const ItemListContainer = ({ greeting, greetingFunction }) => {
+export const ItemListContainer = ({
+    greetingMsg,
+    msgName,
+    greetingFunction,
+}) => {
     const [selectorsLoaded, setSelectorsLoaded] = useState(false);
-    console.log(greeting);
+    console.log(greetingMsg);
     let path = "";
     let { catID } = useParams();
 
@@ -17,7 +21,17 @@ export const ItemListContainer = ({ greeting, greetingFunction }) => {
     return (
         <div className="container-fluid">
             {selectorsLoaded ? (
-                <h2 className="section-title">{greeting}</h2>
+                <h2
+                    className={`section-title ${
+                        greetingMsg.includes("bienvenida")
+                            ? "short-section"
+                            : "long-section"
+                    }`}
+                >
+                    <span className="special-msg">
+                        <GlitchEffect msg={msgName} restMsg={greetingMsg} />
+                    </span>{" "}
+                </h2>
             ) : (
                 ""
             )}
