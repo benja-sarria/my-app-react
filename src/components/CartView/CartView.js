@@ -66,7 +66,11 @@ export const CartView = () => {
             ) : (
                 <>
                     <section className="cart-section empty-section">
-                        <img src={emptyCart} alt="empty cart image" />
+                        <img
+                            src={emptyCart}
+                            alt="empty cart image"
+                            loading="eager"
+                        />
                         <h2 className="cart-view-title empty-cart">
                             No hay nada por aquí
                         </h2>
