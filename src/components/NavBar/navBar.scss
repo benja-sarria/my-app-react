@@ -14,8 +14,14 @@
         align-items: center;
         .brand-link {
             text-decoration: none;
-            color: white;
-
+            color: rgba(255, 255, 255, 0.932);
+            display: flex;
+            align-items: center;
+            .brand-text {
+                margin: 0;
+                font-family: "Planet", sans-serif;
+                font-size: 2.5em;
+            }
             .sushi-logo {
                 max-width: 5em;
             }
@@ -28,5 +34,8 @@
     .link-item {
         text-decoration: none;
         color: white;
+        font-family: "Readex Pro", sans-serif;
+        font-size: 1.05em;
+        font-weight: 200;
     }
 }

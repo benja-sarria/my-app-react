@@ -5,7 +5,13 @@
     align-items: center;
     margin-top: 15vh;
     .section-title {
-        color: white;
+        color: var(--globalContrastHighlight-background-color-four);
+        font-family: "Readex Pro", sans-serif;
+        font-size: 4.5em;
+        font-weight: 200;
+        letter-spacing: -0.025em;
+        text-shadow: 0px 2px 50px
+            var(--globalContrastHighlight-background-color-two);
     }
     .item-list {
         display: flex;

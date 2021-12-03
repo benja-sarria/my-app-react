@@ -4,6 +4,8 @@ import { CartItem } from "../CartItem/CartItem.js";
 import "./CartView.scss";
 import { PathRoute } from "../Context/PathRoute/PathRoute.js";
 import { LoaderComp } from "../LoaderComp/LoaderComp.js";
+import emptyCart from "../../assets/images/emptyCart.webp";
+import { Link } from "react-router-dom";
 
 export const CartView = () => {
     const { cart, ditchCart, totalCompras } = useContext(CartContext);
@@ -38,7 +40,13 @@ export const CartView = () => {
                         <h2 className="cart-view-title">Tu Carrito</h2>
                         <div className="cart-content-container">
                             {cart.map((prod) => {
-                                return <CartItem {...prod} key={prod.id} />;
+                                return (
+                                    <CartItem
+                                        prod={prod}
+                                        key={prod.id}
+                                        setLoading={setLoading}
+                                    />
+                                );
                             })}
                             <div className="cart-view-total">
                                 Total a Abonar: $ {totalCompras()}
@@ -57,7 +65,15 @@ export const CartView = () => {
                 </>
             ) : (
                 <>
-                    <h2>No hay nada por aquí</h2>
+                    <section className="cart-section empty-section">
+                        <img src={emptyCart} alt="empty cart image" />
+                        <h2 className="cart-view-title empty-cart">
+                            No hay nada por aquí
+                        </h2>
+                        <Link to="/" className="btn btn-success back-btn">
+                            <p className="back-text">Descubrir Productos</p>
+                        </Link>
+                    </section>
                 </>
             )}
         </div>

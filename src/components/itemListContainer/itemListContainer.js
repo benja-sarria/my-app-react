@@ -7,7 +7,7 @@ import { CategoryFilter } from "../CategoryFilter/CategoryFilter.js";
 
 export const ItemListContainer = ({ greeting, greetingFunction }) => {
     const [selectorsLoaded, setSelectorsLoaded] = useState(false);
-
+    console.log(greeting);
     let path = "";
     let { catID } = useParams();
 

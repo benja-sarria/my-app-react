@@ -18,8 +18,10 @@ import Typography from "@mui/material/Typography";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export const CartItem = (prod) => {
+export const CartItem = ({ prod, setLoading }) => {
     console.log(useContext(CartContext));
+    console.log(setLoading);
+    console.log(prod);
 
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
@@ -27,7 +29,8 @@ export const CartItem = (prod) => {
     const handlingItemRemoval = () => {
         setTimeout(() => {
             removeCartItem(prod.id);
-        }, 500);
+            setLoading(true);
+        }, 200);
     };
 
     const Demo = styled("div")(({ theme }) => ({

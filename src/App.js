@@ -59,7 +59,7 @@ function App() {
                             path="/"
                             element={
                                 <ItemListContainer
-                                    greeting={`Hola ${userName}! Bienvenido a Planet Sushi!`}
+                                    greeting={`Te damos la bienvenida ${userName}! `}
                                 />
                             }
                         />

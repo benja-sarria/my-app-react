@@ -56,22 +56,20 @@ export default function NavBar({ addedProducts }) {
                                 alt="planet sushi logo"
                                 className="sushi-logo"
                             />
-                            Planet Sushi
+                            <p className="brand-text">Planet Sushi</p>
                         </Link>
                     </Typography>
 
                     <Link to="/" className="link-item">
-                        <Button color="inherit">Productos</Button>
+                        <Button color="inherit" className="link-item">
+                            Productos
+                        </Button>
                     </Link>
                     <Link to="/discover" className="link-item">
                         <Button color="inherit" className="link-item">
                             Descubre
                         </Button>
                     </Link>
-
-                    <Button color="inherit" className="link-item">
-                        Disfruta
-                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>
