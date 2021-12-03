@@ -16,9 +16,16 @@ export const ItemListContainer = ({ greeting, greetingFunction }) => {
     console.log(catID);
     return (
         <div className="container-fluid">
-            <h2 className="section-title">{greeting}</h2>
+            {selectorsLoaded ? (
+                <h2 className="section-title">{greeting}</h2>
+            ) : (
+                ""
+            )}
             <CategoryFilter />
-            <ItemProcessor catID={catID} />
+            <ItemProcessor
+                catID={catID}
+                setSelectorsLoaded={setSelectorsLoaded}
+            />
         </div>
     );
 };

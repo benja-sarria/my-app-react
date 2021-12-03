@@ -3,8 +3,10 @@ import { PedirDatos } from "../../helpers/PedirDatos.js";
 import { ItemList } from "../ItemList/ItemList.js";
 import { stock } from "../../data/stock.js";
 import "./ItemProcessor.scss";
+import { LoaderComp } from "../LoaderComp/LoaderComp.js";
+import { handleTop } from "../../helpers/handleTop.js";
 
-export const ItemProcessor = ({ catID }) => {
+export const ItemProcessor = ({ catID, setSelectorsLoaded }) => {
     //    para hacer el "cargando" lo podemos hacer con un hook useState
     const [loading, setLoading] = useState(false);
     const [productos, setProductos] = useState([]);
@@ -13,6 +15,8 @@ export const ItemProcessor = ({ catID }) => {
     console.log(productos);
 
     useEffect(() => {
+        window.addEventListener("scroll", handleTop);
+        window.scrollTo(0, 0);
         setLoading(true);
         setCategoria(catID);
         PedirDatos()
@@ -29,7 +33,11 @@ export const ItemProcessor = ({ catID }) => {
             // se ejecuta siempre después del .then o el .catch
             .finally(() => {
                 setLoading(false);
+                setSelectorsLoaded(true);
             });
+        return () => {
+            window.removeEventListener("scroll", handleTop);
+        };
     }, [stock, catID]);
 
     // para capturar los datos que se resolvieron en la promesa usamos el then - Aquí le indicamos que espere la resolución y que capture el valor de resolución:
@@ -37,10 +45,15 @@ export const ItemProcessor = ({ catID }) => {
     return (
         <>
             {loading ? (
-                <h2 className="loading-sign">Cargando lista de productos...</h2>
+                <LoaderComp />
             ) : (
                 <ItemList productos={productos} categoria={categoria} />
             )}
+            <div
+                className={`backdrop-overlay ${
+                    loading ? "visible" : "hidden"
+                } list-container`}
+            ></div>
         </>
     );
 };

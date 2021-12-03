@@ -1,0 +1,15 @@
+.loader-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    position: fixed;
+    top: 50vh;
+    left: 40vw;
+    z-index: 3;
+    .loading-sign {
+        color: var(--globalGreenGradient1-background-color);
+    }
+    .loading-square {
+        margin-left: 2em;
+    }
+}

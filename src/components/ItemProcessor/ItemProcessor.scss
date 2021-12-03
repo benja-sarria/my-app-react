@@ -1,3 +1,22 @@
-.loading-sign {
-    color: var(--globalGreenGradient1-background-color);
+.backdrop-overlay {
+    position: absolute;
+    margin: 0 auto;
+    top: 0vh;
+    left: 0vw;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-position: -5em;
+    min-width: 98vw;
+    min-height: 98vh;
+    pointer-events: none;
+    transition: opacity 500ms ease-in-out;
+}
+.visible {
+    opacity: 1;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.hidden {
+    opacity: 0;
 }

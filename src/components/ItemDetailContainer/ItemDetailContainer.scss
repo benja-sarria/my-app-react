@@ -7,9 +7,13 @@
     margin: 2em auto;
     min-height: 120vh;
     margin-top: 1.5em;
+    overflow-x: hidden;
 
     .loading-sign {
         text-align: center;
         color: var(--globalGreenGradient1-background-color);
+    }
+    .detail-container {
+        min-width: 98.5vw;
     }
 }

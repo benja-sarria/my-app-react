@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import { PedirDatos } from "../../helpers/PedirDatos";
 import { ItemDetail } from "../ItemDetail/ItemDetail.js";
 import "./ItemDetailContainer.scss";
+import { LoaderComp } from "../LoaderComp/LoaderComp.js";
+import { handleTop } from "../../helpers/handleTop.js";
 
 export const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false);
@@ -13,6 +15,8 @@ export const ItemDetailContainer = () => {
     console.log(itemId);
 
     useEffect(() => {
+        window.addEventListener("scroll", handleTop);
+        window.scrollTo(0, 0);
         setLoading(true);
         PedirDatos()
             .then((resp) => {
@@ -35,15 +39,19 @@ export const ItemDetailContainer = () => {
             .finally(() => {
                 setLoading(false);
             });
+        return () => {
+            window.removeEventListener("scroll", handleTop);
+        };
     }, [itemId]);
 
     return (
         <div className="details-container">
-            {loading ? (
-                <h2 className="loading-sign">Cargando detalle...</h2>
-            ) : (
-                <ItemDetail {...item} />
-            )}
+            {loading ? <LoaderComp /> : <ItemDetail {...item} />}
+            <div
+                className={`backdrop-overlay ${
+                    loading ? "visible" : "hidden"
+                } detail-container`}
+            ></div>
         </div>
     );
 };
