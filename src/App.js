@@ -19,6 +19,7 @@ import { CartContextProvider } from "./components/Context/CartContextProvider/Ca
 import { CartContext } from "./components/Context/CartContextProvider/CartContextProvider.js";
 import { CartView } from "./components/CartView/CartView.js";
 import { PathRoute } from "./components/Context/PathRoute/PathRoute.js";
+import { StockPanel } from "./components/StockPanel/StockPanel.js";
 
 function App() {
     let greeting, greetingMsg;
@@ -98,6 +99,12 @@ function App() {
                             path="/discover"
                             element={<DiscoverContainer />}
                         />
+                        <Route path="/stock" element={<StockPanel />} />
+                        <Route
+                            path="/stock/:optionID"
+                            element={<StockPanel />}
+                        />
+
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                     {actualCategory !== "/cart" ? (

@@ -7,13 +7,13 @@ export const ItemList = ({ productos, categoria }) => {
     const allProducts = [];
     let products = productos;
     let category = categoria;
-    if (!category) {
+    /* if (!category) {
         for (let cat in products) {
             console.log(products[cat]);
             allProducts.push(...products[cat]);
             console.log(allProducts);
         }
-    }
+    } */
 
     useEffect(() => {
         productos ? setLoading(false) : setLoading(true);
@@ -27,15 +27,8 @@ export const ItemList = ({ productos, categoria }) => {
                 <h2 className="loading-sign">
                     Estamos buscando los productos para vos...
                 </h2>
-            ) : category ? (
-                productos[category].map((prod) => (
-                    <Item key={prod.id} {...prod} />
-                    // puedo mandar por propiedades cada producto o ...
-                    // <Item prod={prod} />
-                    // puedo mandar un spread de las propiedades del producto
-                ))
             ) : (
-                allProducts.map((prod) => (
+                productos.map((prod) => (
                     <Item key={prod.id} {...prod} />
                     // puedo mandar por propiedades cada producto o ...
                     // <Item prod={prod} />

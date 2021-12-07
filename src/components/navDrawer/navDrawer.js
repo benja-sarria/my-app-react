@@ -21,6 +21,8 @@ export default function TemporaryDrawer({ addedProd }) {
         right: false,
     });
 
+    const authenticated = true;
+
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event.type === "keydown" &&
@@ -91,13 +93,20 @@ export default function TemporaryDrawer({ addedProd }) {
             </List>
             <Divider />
             <List>
-                {["Contacto"].map((text, index) => (
-                    <ListItem button key={text}>
-                        <Link to="/" className="link-item">
-                            <ListItemText primary={text} />
-                        </Link>
-                    </ListItem>
-                ))}
+                {[`Contacto`, `${authenticated ? "Database Admin" : null}`].map(
+                    (text, index) => (
+                        <ListItem button key={text}>
+                            <Link
+                                to={`${
+                                    text === "Database Admin" ? "/stock" : "/"
+                                }`}
+                                className="link-item"
+                            >
+                                <ListItemText primary={text} />
+                            </Link>
+                        </ListItem>
+                    )
+                )}
             </List>
         </Box>
     );

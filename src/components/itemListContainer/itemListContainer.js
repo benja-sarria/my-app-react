@@ -20,21 +20,18 @@ export const ItemListContainer = ({
     console.log(catID);
     return (
         <div className="container-fluid">
-            {selectorsLoaded ? (
-                <h2
-                    className={`section-title ${
-                        greetingMsg.includes("bienvenida")
-                            ? "short-section"
-                            : "long-section"
-                    }`}
-                >
-                    <span className="special-msg">
-                        <GlitchEffect msg={msgName} restMsg={greetingMsg} />
-                    </span>{" "}
-                </h2>
-            ) : (
-                ""
-            )}
+            <h2
+                className={`section-title ${
+                    greetingMsg.includes("bienvenida")
+                        ? "short-section"
+                        : "long-section"
+                }`}
+            >
+                <span className="special-msg">
+                    <GlitchEffect msg={msgName} restMsg={greetingMsg} />
+                </span>{" "}
+            </h2>
+
             <CategoryFilter />
             <ItemProcessor
                 catID={catID}

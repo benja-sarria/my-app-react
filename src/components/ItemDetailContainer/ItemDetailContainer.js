@@ -5,6 +5,8 @@ import { ItemDetail } from "../ItemDetail/ItemDetail.js";
 import "./ItemDetailContainer.scss";
 import { LoaderComp } from "../LoaderComp/LoaderComp.js";
 import { handleTop } from "../../helpers/handleTop.js";
+import { doc, getDoc, collection } from "firebase/firestore/lite";
+import { database } from "../../firebase/config.js";
 
 export const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false);
@@ -18,27 +20,22 @@ export const ItemDetailContainer = () => {
         window.addEventListener("scroll", handleTop);
         window.scrollTo(0, 0);
         setLoading(true);
-        PedirDatos()
-            .then((resp) => {
-                console.log(resp);
-                for (let category in resp) {
-                    console.log(resp[category]);
-                    actualCategory = resp[category].find((element) => {
-                        console.log(element["id"]);
-                        console.log(element["id"] === Number(itemId));
-                        return element["id"] === Number(itemId);
-                    });
-                    if (actualCategory) {
-                        console.log(actualCategory);
-                        break;
-                    }
-                }
-                setItem(actualCategory);
-                console.log(item);
+
+        // acá me traigo toda la colección
+        const productsRef = collection(database, "products");
+        // acá me traigo solamente el documento que quiero traer
+        const docRef = doc(database, "products", itemId);
+        getDoc(docRef)
+            .then((document) => {
+                setItem({
+                    id: document.id,
+                    ...document.data(),
+                });
             })
             .finally(() => {
                 setLoading(false);
             });
+
         return () => {
             window.removeEventListener("scroll", handleTop);
         };

@@ -1,0 +1,127 @@
+.stock-panel-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    margin: 2em auto 3em;
+    .back-btn {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 2em;
+        .css-i4bv87-MuiSvgIcon-root {
+            font-size: 1.25em;
+        }
+        .back-text {
+            margin-left: 0.6em;
+            font-size: 1em;
+        }
+    }
+    .special-back-btn {
+        &:hover {
+            background-color: transparent;
+            color: var(--globalContrastHighlight-background-color-two);
+        }
+        align-self: flex-end;
+        font-size: 1.2em;
+        transition: color 500ms ease;
+    }
+
+    .css-1tp3ba8-MuiGrid-root {
+        color: white;
+        .css-11a40jv2-MuiTypography-root {
+            font-family: "Readex Pro", sans-serif;
+            font-size: 3em;
+            font-weight: 300;
+            color: var(--globalGreenHighlight-background-color);
+        }
+        .css-1k9ek97 {
+            background-color: transparent;
+            .css-h4y409-MuiList-root {
+                .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
+                    padding: 1.5em;
+
+                    border-bottom: solid 2px
+                        var(--globalGreenHighlight-background-color);
+                    font-family: "Readex Pro", sans-serif;
+                    background-color: transparent;
+                    &:last-of-type {
+                        border-bottom: solid 2px transparent;
+                    }
+
+                    .css-tlelie-MuiListItemText-root {
+                        &:hover {
+                            .css-10hburv-MuiTypography-root {
+                                color: var(
+                                    --globalGreenHighlight-background-color
+                                );
+                            }
+                        }
+
+                        .css-10hburv-MuiTypography-root {
+                            transition: color 500ms ease;
+
+                            font-family: "Readex Pro", sans-serif;
+                        }
+                    }
+                    .css-8je8zh-MuiTouchRipple-root {
+                        .MuiTouchRipple-rippleVisible {
+                            .MuiTouchRipple-child {
+                                background-color: var(
+                                    --globalGreenHighlight-background-color
+                                );
+                            }
+                        }
+                    }
+                    .css-1e9lk82-MuiListItemAvatar-root {
+                        .css-2s90m6-MuiAvatar-root {
+                            background-color: var(
+                                --globalGreenHighlight-background-color
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .stock-panel-title {
+        margin: 0.2em 1em 1em 1em;
+        color: var(--globalGreenHighlight-background-color);
+        font-family: "Readex Pro", sans-serif;
+        font-weight: 300;
+    }
+    .add {
+        max-width: 40%;
+        min-width: 40%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        .label {
+            color: white;
+            display: none;
+        }
+        .form-control {
+            margin-bottom: 0em;
+        }
+        .btn-container {
+            align-self: flex-end;
+            justify-self: flex-end;
+            .btn {
+                margin: 0.25em;
+            }
+            .btn-outline {
+                color: white;
+                border-color: white;
+            }
+        }
+    }
+    .stock-panel-text {
+        color: white;
+        font-family: "Readex Pro", sans-serif;
+        font-size: 1.2em;
+        font-weight: 250;
+    }
+}
