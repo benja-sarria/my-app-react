@@ -58,9 +58,11 @@ export const CartView = () => {
                         <button onClick={ditchCart} className="btn btn-danger ">
                             VaciarCarrito
                         </button>
-                        <button className="btn btn-success pay-btn">
-                            Pagar
-                        </button>
+                        <Link to="/checkout">
+                            <button className="btn btn-success pay-btn">
+                                Pagar
+                            </button>
+                        </Link>
                     </div>
                 </>
             ) : (

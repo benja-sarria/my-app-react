@@ -20,6 +20,7 @@ import { CartContext } from "./components/Context/CartContextProvider/CartContex
 import { CartView } from "./components/CartView/CartView.js";
 import { PathRoute } from "./components/Context/PathRoute/PathRoute.js";
 import { StockPanel } from "./components/StockPanel/StockPanel.js";
+import { Checkout } from "./components/Checkout/Checkout.js";
 
 function App() {
     let greeting, greetingMsg;
@@ -104,6 +105,7 @@ function App() {
                             path="/stock/:optionID"
                             element={<StockPanel />}
                         />
+                        <Route path="/checkout" element={<Checkout />} />
 
                         <Route path="*" element={<Navigate to="/" />} />
                     </Routes>

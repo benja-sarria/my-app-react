@@ -51,38 +51,43 @@ export const ItemDetail = ({
                 <ArrowBackIcon />
                 <span className="back-text"> Atrás</span>
             </IconButton>
-            <div className="img-container">
-                <img src={img} alt={name} className="card-img-top" />
-            </div>
-            <div className="card-body">
-                <h5 className="card-title detail-page-title">{name}</h5>
-                <p className="card-text detail-page-text description-page-text">
-                    {description}
-                </p>
-                <p className="card-text detail-page-text">
-                    $ &nbsp; {Intl.NumberFormat().format(price)}
-                </p>
-                <p className="card-text detail-page-text">{category}</p>
-                <hr className="divisor" />
-                {!isInCart(id) ? (
-                    <ItemCount
-                        max={stock}
-                        initial="0"
-                        cartQuantity={cartQuantity}
-                        setQuantity={setCartQuantity}
-                        handleAdd={handleAdd}
-                    />
-                ) : (
-                    <Link to="/cart" className="btn btn-success checkout-btn">
-                        <p className="checkout-text">Terminar mi compra </p>
-                        <CartWidget
-                            specialClass=""
-                            icon={<ShoppingCartIcon />}
-                            showBadge="0"
-                            addedProducts={`${accountTotal()}`}
+            <div className="content-container">
+                <div className="img-container">
+                    <img src={img} alt={name} className="card-img-top" />
+                </div>
+                <div className="card-body">
+                    <h5 className="card-title detail-page-title">{name}</h5>
+                    <p className="card-text detail-page-text description-page-text">
+                        {description}
+                    </p>
+                    <p className="card-text detail-page-text">
+                        $ &nbsp; {Intl.NumberFormat().format(price)}
+                    </p>
+                    {/* <p className="card-text detail-page-text">{category}</p> */}
+                    <hr className="divisor" />
+                    {!isInCart(id) ? (
+                        <ItemCount
+                            max={stock}
+                            initial="0"
+                            cartQuantity={cartQuantity}
+                            setQuantity={setCartQuantity}
+                            handleAdd={handleAdd}
                         />
-                    </Link>
-                )}
+                    ) : (
+                        <Link
+                            to="/cart"
+                            className="btn btn-success checkout-btn"
+                        >
+                            <p className="checkout-text">Terminar mi compra </p>
+                            <CartWidget
+                                specialClass=""
+                                icon={<ShoppingCartIcon />}
+                                showBadge="0"
+                                addedProducts={`${accountTotal()}`}
+                            />
+                        </Link>
+                    )}
+                </div>
             </div>
         </article>
     );
