@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { useParams } from "react-router";
 import "./ItemListContainer.scss";
 import { ItemProcessor } from "../ItemProcessor/ItemProcessor.js";
 import { CategoryFilter } from "../CategoryFilter/CategoryFilter.js";
 import { GlitchEffect } from "../GlitchEffect/GlitchEffect.js";
+import { UserContext } from "../Context/UserContext/UserContext";
 
 export const ItemListContainer = ({
     greetingMsg,
@@ -14,6 +15,9 @@ export const ItemListContainer = ({
     console.log(greetingMsg);
     let path = "";
     let { catID } = useParams();
+
+    const { signedUser } = useContext(UserContext);
+    console.log(signedUser);
 
     greetingFunction && greetingFunction(catID);
     console.log(greetingFunction);
@@ -28,7 +32,12 @@ export const ItemListContainer = ({
                 }`}
             >
                 <span className="special-msg">
-                    <GlitchEffect msg={msgName} restMsg={greetingMsg} />
+                    <GlitchEffect
+                        msg={
+                            signedUser ? signedUser.user.displayName : "usuario"
+                        }
+                        restMsg={greetingMsg}
+                    />
                 </span>{" "}
             </h2>
 

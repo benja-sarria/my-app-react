@@ -41,7 +41,7 @@ export const ItemDetail = ({
     };
 
     return (
-        <article className="card">
+        <article className="card detail-card">
             <IconButton
                 aria-label="back"
                 color="primary"

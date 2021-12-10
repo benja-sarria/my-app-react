@@ -21,6 +21,9 @@ import { CartView } from "./components/CartView/CartView.js";
 import { PathRoute } from "./components/Context/PathRoute/PathRoute.js";
 import { StockPanel } from "./components/StockPanel/StockPanel.js";
 import { Checkout } from "./components/Checkout/Checkout.js";
+import { SignUp } from "./components/SignUp/SignUp.js";
+import { Login } from "./components/Login/Login.js";
+import { UserContextProvider } from "./components/Context/UserContext/UserContext.js";
 
 function App() {
     let greeting, greetingMsg;
@@ -30,9 +33,20 @@ function App() {
     );
     console.log(actualCategory);
 
+    const [signedUser, setSignedUser] = useState({
+        user: {
+            displayName: "",
+        },
+    });
+    const [reload, setReload] = useState(false);
+
+    console.log(signedUser);
+
     useEffect(() => {
+        console.log(signedUser);
+        console.log(signedUser.user.displayName === "");
         return () => {};
-    }, [actualCategory]);
+    }, [actualCategory, reload]);
 
     window.addEventListener("popstate", () => {
         console.log("SE CAMBIO DE URL");
@@ -46,79 +60,111 @@ function App() {
     };
 
     return (
-        <PathRoute.Provider value={{ actualCategory, setActualCategory }}>
-            <CartContextProvider
-                acrossCount={acrossCounter}
-                setAcrossCount={setAcrossCounter}
-            >
-                <BrowserRouter className="app">
-                    <header className="App-header">
-                        <NavBar addedProducts={`${acrossCounter}`} />
-                    </header>
+        <UserContextProvider
+            signedUser={signedUser}
+            setSignedUser={setSignedUser}
+        >
+            <PathRoute.Provider value={{ actualCategory, setActualCategory }}>
+                <CartContextProvider
+                    acrossCount={acrossCounter}
+                    setAcrossCount={setAcrossCounter}
+                >
+                    <BrowserRouter className="app">
+                        {!reload ? (
+                            <Login setReload={setReload} />
+                        ) : (
+                            <>
+                                <header className="App-header">
+                                    <NavBar
+                                        addedProducts={`${acrossCounter}`}
+                                    />
+                                </header>
 
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <ItemListContainer
-                                    greetingMsg={`Te damos la bienvenida `}
-                                    msgName={`${userName}!`}
-                                />
-                            }
-                        />
-                        <Route
-                            path="/category/:catID"
-                            element={
-                                <ItemListContainer
-                                    greetingMsg={`${
-                                        actualCategory
-                                            ? `Maravíllate con los secretos de ${
-                                                  actualCategory === "vajilla"
-                                                      ? "nuestra"
-                                                      : "nuestras"
-                                              }`
-                                            : `Te damos la bienvenida `
-                                    } `}
-                                    greetingFunction={personalizedGreeting}
-                                    msgName={
-                                        actualCategory
-                                            ? `${capitalizeFirstLetter(
-                                                  actualCategory
-                                              )}!`
-                                            : `${userName}!`
-                                    }
-                                />
-                            }
-                        />
+                                <Routes>
+                                    <Route
+                                        path="/"
+                                        element={
+                                            <ItemListContainer
+                                                greetingMsg={`Te damos la bienvenida `}
+                                                msgName={`${userName}!`}
+                                            />
+                                        }
+                                    />
+                                    <Route
+                                        path="/category/:catID"
+                                        element={
+                                            <ItemListContainer
+                                                greetingMsg={`${
+                                                    actualCategory
+                                                        ? `Maravíllate con los secretos de ${
+                                                              actualCategory ===
+                                                              "vajilla"
+                                                                  ? "nuestra"
+                                                                  : "nuestras"
+                                                          }`
+                                                        : `Te damos la bienvenida `
+                                                } `}
+                                                greetingFunction={
+                                                    personalizedGreeting
+                                                }
+                                                msgName={
+                                                    actualCategory
+                                                        ? `${capitalizeFirstLetter(
+                                                              actualCategory
+                                                          )}!`
+                                                        : `${userName}!`
+                                                }
+                                            />
+                                        }
+                                    />
 
-                        <Route
-                            path="/detail/:itemId"
-                            element={<ItemDetailContainer />}
-                        />
-                        <Route path="/cart" element={<CartView />} />
-                        <Route
-                            path="/discover"
-                            element={<DiscoverContainer />}
-                        />
-                        <Route path="/stock" element={<StockPanel />} />
-                        <Route
-                            path="/stock/:optionID"
-                            element={<StockPanel />}
-                        />
-                        <Route path="/checkout" element={<Checkout />} />
+                                    <Route
+                                        path="/detail/:itemId"
+                                        element={<ItemDetailContainer />}
+                                    />
+                                    <Route
+                                        path="/cart"
+                                        element={<CartView />}
+                                    />
+                                    <Route
+                                        path="/discover"
+                                        element={<DiscoverContainer />}
+                                    />
+                                    <Route
+                                        path="/stock"
+                                        element={<StockPanel />}
+                                    />
+                                    <Route
+                                        path="/stock/:optionID"
+                                        element={<StockPanel />}
+                                    />
+                                    <Route
+                                        path="/checkout"
+                                        element={<Checkout />}
+                                    />
+                                    <Route
+                                        path="/auth/:authType"
+                                        element={<Login />}
+                                    />
 
-                        <Route path="*" element={<Navigate to="/" />} />
-                    </Routes>
-                    {actualCategory !== "/cart" ? (
-                        <FloatingActionButtons
-                            addedProducts={`${acrossCounter}`}
-                        />
-                    ) : (
-                        ""
-                    )}
-                </BrowserRouter>
-            </CartContextProvider>
-        </PathRoute.Provider>
+                                    <Route
+                                        path="*"
+                                        element={<Navigate to="/" />}
+                                    />
+                                </Routes>
+                                {actualCategory !== "/cart" ? (
+                                    <FloatingActionButtons
+                                        addedProducts={`${acrossCounter}`}
+                                    />
+                                ) : (
+                                    ""
+                                )}
+                            </>
+                        )}
+                    </BrowserRouter>
+                </CartContextProvider>
+            </PathRoute.Provider>
+        </UserContextProvider>
     );
 }
 
