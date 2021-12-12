@@ -12,7 +12,7 @@ import {
     signInWithPopup,
 } from "firebase/auth";
 
-export const Login = ({ setReload }) => {
+export const Login = ({ setReload, setLoggedIn }) => {
     const { authType } = useParams();
 
     const navigate = useNavigate();
@@ -38,6 +38,7 @@ export const Login = ({ setReload }) => {
                 console.log(signedUser);
                 navigate("/");
                 setReload(true);
+                setLoggedIn(true);
             })
             .catch((error) => {
                 console.log(error);

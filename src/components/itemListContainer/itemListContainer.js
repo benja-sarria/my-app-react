@@ -5,6 +5,7 @@ import { ItemProcessor } from "../ItemProcessor/ItemProcessor.js";
 import { CategoryFilter } from "../CategoryFilter/CategoryFilter.js";
 import { GlitchEffect } from "../GlitchEffect/GlitchEffect.js";
 import { UserContext } from "../Context/UserContext/UserContext";
+import { capitalizeFirstLetter } from "../../helpers/capitalizeLetter.js";
 
 export const ItemListContainer = ({
     greetingMsg,
@@ -16,9 +17,10 @@ export const ItemListContainer = ({
     let path = "";
     let { catID } = useParams();
 
-    const { signedUser } = useContext(UserContext);
+    const { signedUser, loggedIn } = useContext(UserContext);
     console.log(signedUser);
-
+    const nameArray = signedUser.user.displayName.split(/[\s,]+/);
+    const [name] = nameArray;
     greetingFunction && greetingFunction(catID);
     console.log(greetingFunction);
     console.log(catID);
@@ -34,9 +36,19 @@ export const ItemListContainer = ({
                 <span className="special-msg">
                     <GlitchEffect
                         msg={
-                            signedUser ? signedUser.user.displayName : "usuario"
+                            !catID
+                                ? loggedIn
+                                    ? `${name} !`
+                                    : "Planet Sushi !"
+                                : `${capitalizeFirstLetter(catID)} !`
                         }
-                        restMsg={greetingMsg}
+                        restMsg={
+                            !catID
+                                ? loggedIn
+                                    ? greetingMsg
+                                    : `${greetingMsg} a`
+                                : greetingMsg
+                        }
                     />
                 </span>{" "}
             </h2>

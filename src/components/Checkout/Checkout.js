@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
-import { validarDatos } from "./validarDatos.js";
+import { validarDatos, validateEmail } from "./validarDatos.js";
 import { Navigate } from "react-router-dom";
 import {
     collection,
@@ -16,19 +16,41 @@ import {
 } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";
 import { Timestamp } from "react";
+import { UserContext } from "../Context/UserContext/UserContext.js";
+import { CartItem } from "../CartItem/CartItem.js";
+import Swal from "sweetalert2";
+import "./Checkout.scss";
 
 export const Checkout = () => {
     const { cart, totalCompras, ditchCart } = useContext(CartContext);
+
+    const { signedUser, loggedIn } = useContext(UserContext);
+    console.log(signedUser);
+    console.log(loggedIn);
+
+    const getLoggedUserName = (value) => {
+        const nameArray = signedUser.user.displayName.split(/[\s,]+/);
+        if (nameArray.length <= 3) {
+            if (value === "name") {
+                const [name] = nameArray;
+                return name;
+            } else {
+                const [name, ...lastNames] = nameArray;
+                return lastNames;
+            }
+        }
+        console.log(nameArray);
+    };
 
     const handleEnviar = () => {
         console.log(order);
     };
 
     const [values, setValues] = useState({
-        name: "",
-        lastName: "",
-        email: "",
-        emailConfirm: "",
+        name: `${loggedIn ? getLoggedUserName("name") : ""}`,
+        lastName: `${loggedIn ? getLoggedUserName("lastName") : ""}`,
+        email: `${loggedIn ? signedUser.user.email : ""}`,
+        emailConfirm: `${loggedIn ? signedUser.user.email : ""}`,
     });
 
     const order = {
@@ -97,6 +119,27 @@ export const Checkout = () => {
         if (outOfStock.length === 0) {
             addDoc(orderRef, order).then((response) => {
                 console.log(response.id);
+                let index = 0;
+                Swal.fire({
+                    title: `¡Felicitaciones ${signedUser.user.displayName}!`,
+                    html: ` <h5 class="buy-list-subtitle">Tu compra se realizó con éxito. Tu código de orden es el siguiente: ${
+                        response.id
+                    }.</h5> 
+                    <br class="buy-list-line-break"/>
+                    <ul class="buy-list-container">
+                    Resumen de tu compra: <br class="buy-list-line-break/>
+                       ${cart.map((prod) => {
+                           index += 1;
+                           return `<li class="buy-list-item">  Descripción: ${
+                               prod.name
+                           } | Precio Unit: $ ${Intl.NumberFormat().format(
+                               prod.price
+                           )} | Cantidad: ${prod.cartQuantity}
+                           </li> ${cart[index] ? "<hr />" : ""} `;
+                       })} </ul>`,
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
             });
             console.log("modificando base de datos");
             batch.commit();
@@ -125,10 +168,13 @@ export const Checkout = () => {
     return cart.length === 0 ? (
         <Navigate to="/" />
     ) : (
-        <section>
-            <h2>Resumen de Compra</h2>
-            <hr />
-            <form action="container m-5" onSubmit={handleSubmit}>
+        <section className="checkout-order-container">
+            <h2 className="checkout-section-title">Resumen de Compra</h2>
+            <form
+                action="container m-5"
+                onSubmit={handleSubmit}
+                className="checkout-form"
+            >
                 {/* al poner el name para usar el handleinputchange tengo que usar el nombre de cada propiedad del objeto, para que la tome en el evt.target.name */}
                 <input
                     name="name"
@@ -139,7 +185,12 @@ export const Checkout = () => {
                     className="form-control my-2"
                 />
                 {/* renderizado condicional */}
-                {values.name.length < 4 && <h2>Nombre inválido</h2>}
+                {values.name.length < 4 && (
+                    <h2 className="error-message">
+                        El nombre ingresado debe contener 4 o más caracteres
+                        inválido
+                    </h2>
+                )}
                 <input
                     name="lastName"
                     onChange={handleInputChange}
@@ -148,6 +199,11 @@ export const Checkout = () => {
                     placeholder="Apellido"
                     className="form-control my-2"
                 />
+                {values.lastName.length < 4 && (
+                    <h2 className="error-message">
+                        El apellido ingresado debe tener 4 o más caracteres
+                    </h2>
+                )}
 
                 <input
                     name="email"
@@ -157,7 +213,11 @@ export const Checkout = () => {
                     placeholder="Email"
                     className="form-control my-2"
                 />
-                {!values.email.includes("@") && <h2>E-mail inválido</h2>}
+                {!validateEmail(values.email) && (
+                    <h2 className="error-message">
+                        El e-mail que ingresaste no es válido
+                    </h2>
+                )}
                 <input
                     name="emailConfirm"
                     onChange={handleInputChange}
@@ -166,8 +226,10 @@ export const Checkout = () => {
                     placeholder="Email"
                     className="form-control my-2"
                 />
-                {!values.emailConfirm !== values.email && (
-                    <h2>E-mail inválido</h2>
+                {values.emailConfirm !== values.email && (
+                    <h2 className="error-message">
+                        Los e-mail no coinciden, revisa el campo anterior
+                    </h2>
                 )}
 
                 <button type="submit" className="btn btn-primary">

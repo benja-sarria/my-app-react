@@ -27,7 +27,7 @@ import { UserContextProvider } from "./components/Context/UserContext/UserContex
 
 function App() {
     let greeting, greetingMsg;
-    let userName = "Usuario";
+    let userName = "Planet Sushi";
     const [actualCategory, setActualCategory] = useState(
         window.location.pathname
     );
@@ -39,6 +39,7 @@ function App() {
         },
     });
     const [reload, setReload] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     console.log(signedUser);
 
@@ -63,6 +64,7 @@ function App() {
         <UserContextProvider
             signedUser={signedUser}
             setSignedUser={setSignedUser}
+            loggedIn={loggedIn}
         >
             <PathRoute.Provider value={{ actualCategory, setActualCategory }}>
                 <CartContextProvider
@@ -71,7 +73,10 @@ function App() {
                 >
                     <BrowserRouter className="app">
                         {!reload ? (
-                            <Login setReload={setReload} />
+                            <Login
+                                setReload={setReload}
+                                setLoggedIn={setLoggedIn}
+                            />
                         ) : (
                             <>
                                 <header className="App-header">

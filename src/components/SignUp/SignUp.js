@@ -142,7 +142,7 @@ export const SignUp = ({
                                     className="login-btn anonymous"
                                     onClick={anonymousLoginHandler}
                                 >
-                                    Continua como Anónimo
+                                    Ingresa como Invitado/a
                                 </button>
                             </div>
                         </div>

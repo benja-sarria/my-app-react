@@ -6,6 +6,7 @@ export const UserContextProvider = ({
     signedUser,
     setSignedUser,
     children,
+    loggedIn,
 }) => {
     /*  const [signedUser, setSignedUser] = useState({
         user: {
@@ -14,7 +15,7 @@ export const UserContextProvider = ({
     }); */
 
     return (
-        <UserContext.Provider value={{ setSignedUser, signedUser }}>
+        <UserContext.Provider value={{ setSignedUser, signedUser, loggedIn }}>
             {children}
         </UserContext.Provider>
     );
