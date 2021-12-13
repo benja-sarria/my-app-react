@@ -13,9 +13,9 @@ import {
     query,
     where,
     orderBy,
+    Timestamp,
 } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";
-import { Timestamp } from "react";
 import { UserContext } from "../Context/UserContext/UserContext.js";
 import { CartItem } from "../CartItem/CartItem.js";
 import Swal from "sweetalert2";
@@ -79,7 +79,7 @@ export const Checkout = () => {
             buyer: { ...values },
             items: cart,
             total: totalCompras(),
-            // date: Timestamp.fromDate(new Date()),
+            date: Timestamp.fromDate(new Date()),
         };
 
         const batch = writeBatch(database);
@@ -122,20 +122,20 @@ export const Checkout = () => {
                 let index = 0;
                 Swal.fire({
                     title: `¡Felicitaciones ${signedUser.user.displayName}!`,
-                    html: ` <h5 class="buy-list-subtitle">Tu compra se realizó con éxito. Tu código de orden es el siguiente: ${
+                    html: ` <h5 class="buy-list-subtitle">Tu compra se realizó con éxito. Tu código de orden es el siguiente: <span class="buy-list-highlight"> ${
                         response.id
-                    }.</h5> 
+                    }</span> .</h5> 
                     <br class="buy-list-line-break"/>
                     <ul class="buy-list-container">
-                    Resumen de tu compra: <br class="buy-list-line-break/>
+                    <h5 class="buy-list-text">Resumen de tu compra :</h5> <br class="buy-list-line-break" />
                        ${cart.map((prod) => {
                            index += 1;
-                           return `<li class="buy-list-item">  Descripción: ${
+                           return `<li class="buy-list-item"> ● &nbsp; Descripción: ${
                                prod.name
                            } | Precio Unit: $ ${Intl.NumberFormat().format(
                                prod.price
                            )} | Cantidad: ${prod.cartQuantity}
-                           </li> ${cart[index] ? "<hr />" : ""} `;
+                           </li>  `;
                        })} </ul>`,
                     icon: "success",
                     confirmButtonText: "Aceptar",

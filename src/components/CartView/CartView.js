@@ -49,7 +49,8 @@ export const CartView = () => {
                                 );
                             })}
                             <div className="cart-view-total">
-                                Total a Abonar: $ {totalCompras()}
+                                Total a Abonar: ${" "}
+                                {Intl.NumberFormat().format(totalCompras())}
                             </div>
                         </div>
                     </section>
