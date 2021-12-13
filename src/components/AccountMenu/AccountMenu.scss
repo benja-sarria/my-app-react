@@ -1,0 +1,26 @@
+.MuiTooltip-popper {
+}
+
+.MuiPaper-root {
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    .MuiList-root {
+        // background-color: rgba(0, 0, 0, 0.8) !important;
+        .MuiMenuItem-root {
+            transition: background 500ms ease;
+            &:hover {
+                background-color: rgba(
+                    var(--globalGreenHighlight-background-color-glitch-r),
+                    var(--globalGreenHighlight-background-color-glitch-g),
+                    var(--globalGreenHighlight-background-color-glitch-b),
+                    0.2
+                );
+            }
+            .MuiTouchRipple-root {
+            }
+            .MuiListItemIcon-root {
+                color: white;
+            }
+        }
+    }
+}

@@ -37,6 +37,9 @@ export const Login = ({ setReload, setLoggedIn }) => {
                 setSignedUser(res);
                 console.log(signedUser);
                 navigate("/");
+                let sessionUser = JSON.stringify(res);
+                console.log(sessionUser);
+                sessionStorage.setItem("sessionUser", sessionUser);
                 setReload(true);
                 setLoggedIn(true);
             })

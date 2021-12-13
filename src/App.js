@@ -24,6 +24,7 @@ import { Checkout } from "./components/Checkout/Checkout.js";
 import { SignUp } from "./components/SignUp/SignUp.js";
 import { Login } from "./components/Login/Login.js";
 import { UserContextProvider } from "./components/Context/UserContext/UserContext.js";
+import { getSessionUser } from "./helpers/getSessionUser.js";
 
 function App() {
     let greeting, greetingMsg;
@@ -44,6 +45,7 @@ function App() {
     console.log(signedUser);
 
     useEffect(() => {
+        getSessionUser(setSignedUser, signedUser, setReload, setLoggedIn);
         console.log(signedUser);
         console.log(signedUser.user.displayName === "");
         return () => {};
@@ -65,6 +67,8 @@ function App() {
             signedUser={signedUser}
             setSignedUser={setSignedUser}
             loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            setReload={setReload}
         >
             <PathRoute.Provider value={{ actualCategory, setActualCategory }}>
                 <CartContextProvider

@@ -1,33 +1,39 @@
-.appBarContainer {
-    display: flex;
-    align-items: stretch;
-    background: rgb(0, 88, 66) !important;
-    background-image: linear-gradient(
-        120deg,
-        var(--globalGreenHighlight-background-color),
-        var(--globalGreenGradient1-background-color),
-        var(--globalGreenGradient2-background-color)
-    ) !important;
-    .brand-container {
+.App-header {
+    position: sticky;
+    top: 0em;
+    z-index: 5;
+    .appBarContainer {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        .brand-link {
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.932);
+        align-items: stretch;
+        background: rgb(0, 88, 66) !important;
+        background-image: linear-gradient(
+            120deg,
+            var(--globalGreenHighlight-background-color),
+            var(--globalGreenGradient1-background-color),
+            var(--globalGreenGradient2-background-color)
+        ) !important;
+        .brand-container {
             display: flex;
+            justify-content: center;
             align-items: center;
-            .brand-text {
-                margin: 0;
-                font-family: "Planet", sans-serif;
-                font-size: 2.5em;
-            }
-            .sushi-logo {
-                max-width: 5em;
+            .brand-link {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.932);
+                display: flex;
+                align-items: center;
+                .brand-text {
+                    margin: 0;
+                    font-family: "Planet", sans-serif;
+                    font-size: 2.5em;
+                }
+                .sushi-logo {
+                    max-width: 5em;
+                }
             }
         }
     }
 }
+
 //
 
 .navbar-toolbar {
