@@ -1,0 +1,30 @@
+.registration-container {
+    padding: 2em 2em 2em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .registration-inner-container {
+        // overflow-y: scroll !important;
+        min-width: 100%;
+        .registration-inner-center {
+            display: flex;
+            padding: 0em 4em 0em 0em;
+            .registration-image {
+                justify-self: center;
+                margin: auto;
+                margin-right: 0em;
+                margin-top: 0em;
+                width: 25%;
+                position: relative;
+                bottom: 3em;
+                right: 1.5em;
+            }
+        }
+        .registration-btn {
+            margin: 2em auto 0em;
+            max-width: 30%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

@@ -47,10 +47,26 @@ export const Checkout = () => {
     };
 
     const [values, setValues] = useState({
-        name: `${loggedIn ? getLoggedUserName("name") : ""}`,
-        lastName: `${loggedIn ? getLoggedUserName("lastName") : ""}`,
-        email: `${loggedIn ? signedUser.user.email : ""}`,
-        emailConfirm: `${loggedIn ? signedUser.user.email : ""}`,
+        name: `${
+            loggedIn && signedUser.providerId === "google.com"
+                ? getLoggedUserName("name")
+                : ""
+        }`,
+        lastName: `${
+            loggedIn && signedUser.providerId === "google.com"
+                ? getLoggedUserName("lastName")
+                : ""
+        }`,
+        email: `${
+            loggedIn && signedUser.providerId === "google.com"
+                ? signedUser.user.email
+                : ""
+        }`,
+        emailConfirm: `${
+            loggedIn && signedUser.providerId === "google.com"
+                ? signedUser.user.email
+                : ""
+        }`,
     });
 
     const order = {

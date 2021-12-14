@@ -18,9 +18,10 @@ import { sessionLogOut } from "../../helpers/sessionLogOut.js";
 
 export function AccountMenu({ userName, photoURL }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const { setSignedUser, setLoggedIn, setReload } = useContext(UserContext);
+    const { setSignedUser, setLoggedIn, setReload, signedUser } =
+        useContext(UserContext);
 
-    useEffect(() => {}, [photoURL]);
+    useEffect(() => {}, [photoURL, userName]);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -98,7 +99,8 @@ export function AccountMenu({ userName, photoURL }) {
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
                 <MenuItem>
-                    <Avatar alt={userName} src={photoURL} /> {userName}
+                    <Avatar alt={userName} src={photoURL} />{" "}
+                    {userName ? userName : signedUser.displayName}
                 </MenuItem>
                 <Divider />
 

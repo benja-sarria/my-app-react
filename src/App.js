@@ -34,6 +34,12 @@ function App() {
     );
     console.log(actualCategory);
 
+    const [loginLocation, setLoginLocation] = useState("");
+
+    const loginLocationHandler = (value) => {
+        setLoginLocation(value);
+    };
+
     const [signedUser, setSignedUser] = useState({
         user: {
             displayName: "",
@@ -45,9 +51,22 @@ function App() {
     console.log(signedUser);
 
     useEffect(() => {
+        if (
+            window.location.pathname !== "/auth/login" &&
+            !sessionStorage.getItem("sessionUser") &&
+            window.location.pathname !== "/auth/register"
+        ) {
+            window.location.pathname = "/auth/login";
+            console.log(!reload);
+            console.log("EJECUTANDO EL REDIRECT");
+        }
+    }, []);
+
+    useEffect(() => {
         getSessionUser(setSignedUser, signedUser, setReload, setLoggedIn);
         console.log(signedUser);
         console.log(signedUser.user.displayName === "");
+        console.log(reload);
         return () => {};
     }, [actualCategory, reload]);
 
@@ -77,10 +96,21 @@ function App() {
                 >
                     <BrowserRouter className="app">
                         {!reload ? (
-                            <Login
-                                setReload={setReload}
-                                setLoggedIn={setLoggedIn}
-                            />
+                            <>
+                                <Routes>
+                                    <Route
+                                        path="/auth/:authType"
+                                        element={
+                                            <Login
+                                                setReload={setReload}
+                                                setLoggedIn={setLoggedIn}
+                                                location={loginLocationHandler}
+                                                loginLoc={loginLocation}
+                                            />
+                                        }
+                                    />
+                                </Routes>
+                            </>
                         ) : (
                             <>
                                 <header className="App-header">

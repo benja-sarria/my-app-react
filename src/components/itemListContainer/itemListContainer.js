@@ -13,14 +13,55 @@ export const ItemListContainer = ({
     greetingFunction,
 }) => {
     const [selectorsLoaded, setSelectorsLoaded] = useState(false);
+    const [greeting, setgreeting] = useState("");
     console.log(greetingMsg);
     let path = "";
     let { catID } = useParams();
 
-    const { signedUser, loggedIn } = useContext(UserContext);
+    const { signedUser, loggedIn, setSignedUser } = useContext(UserContext);
     console.log(signedUser);
-    const nameArray = signedUser.user.displayName.split(/[\s,]+/);
-    const [name] = nameArray;
+
+    useEffect(() => {
+        const determineName = () => {
+            if (
+                signedUser.user.displayName !== "" &&
+                signedUser.user.displayName
+            ) {
+                const nameArray = signedUser.user.displayName.split(/[\s,]+/);
+                const [name] = nameArray;
+                return name;
+            } else if (signedUser.user.email) {
+                const composedUserArray = signedUser.user.email.split("@");
+
+                console.log(composedUserArray[0]);
+                const greeting = composedUserArray[0];
+                const addingUsername = {
+                    ...signedUser,
+                    displayName: greeting,
+                };
+                console.log(signedUser);
+                console.log(addingUsername);
+                sessionStorage.removeItem("sessionUser");
+                console.log(signedUser);
+                let sessionUser = JSON.stringify(addingUsername);
+                console.log(sessionUser);
+                sessionStorage.setItem("sessionUser", sessionUser);
+                setSignedUser({ ...addingUsername });
+
+                setTimeout(() => {
+                    setSignedUser({ ...addingUsername });
+                    console.log(signedUser);
+                }, 5000);
+                console.log(signedUser);
+                return greeting;
+            } else {
+                const greeting = "Planet Sushi";
+                return greeting;
+            }
+        };
+        setgreeting(determineName());
+    }, [greeting]);
+
     greetingFunction && greetingFunction(catID);
     console.log(greetingFunction);
     console.log(catID);
@@ -38,7 +79,7 @@ export const ItemListContainer = ({
                         msg={
                             !catID
                                 ? loggedIn
-                                    ? `${name} !`
+                                    ? `${greeting} !`
                                     : "Planet Sushi !"
                                 : `${capitalizeFirstLetter(catID)} !`
                         }
