@@ -55,6 +55,7 @@ export const ItemListContainer = ({
                 console.log(signedUser);
                 return greeting;
             } else {
+                console.log(signedUser);
                 const greeting = "Planet Sushi";
                 return greeting;
             }

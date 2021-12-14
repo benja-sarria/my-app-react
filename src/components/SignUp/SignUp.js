@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -35,7 +35,21 @@ export const SignUp = ({
 }) => {
     console.log(authType);
     const { signedUser } = useContext(UserContext);
-    useEffect(() => {}, [authType]);
+
+    const submitBtn = useRef();
+
+    const handlePressedEnter = (evt) => {
+        if (evt.key === "Enter") {
+            submitBtn.current.click();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("keypress", handlePressedEnter);
+        return () => {
+            window.removeEventListener("keypress", handlePressedEnter);
+        };
+    }, [authType]);
     console.log(signedUser);
     console.log(signedUser.user.displayName);
 
@@ -150,7 +164,11 @@ export const SignUp = ({
                     </div>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={handleLogWithCreatedAccount} size="small">
+                    <Button
+                        onClick={handleLogWithCreatedAccount}
+                        size="small"
+                        ref={submitBtn}
+                    >
                         Iniciar Sesión
                     </Button>
                 </CardActions>

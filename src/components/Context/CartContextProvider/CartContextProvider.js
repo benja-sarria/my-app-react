@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { getSessionCart } from "../../../helpers/getSessionCart.js";
+import { setSessionCart } from "../../../helpers/setSessionCart.js";
 
 export const CartContext = createContext();
 
@@ -35,6 +37,7 @@ export const CartContextProvider = ({
 
     const ditchCart = () => {
         setCart([]);
+        sessionStorage.removeItem("sessionCart");
     };
 
     const totalCart = () => {
@@ -62,6 +65,17 @@ export const CartContextProvider = ({
             return accumulator + product.price * product.cartQuantity;
         }, 0);
     };
+
+    useEffect(() => {
+        if (cart.length === 0) {
+            console.log("recuperando carrito de la sesión");
+            getSessionCart(setCart, cart);
+        }
+    }, []);
+
+    useEffect(() => {
+        setSessionCart(cart);
+    }, [cart]);
 
     return (
         <CartContext.Provider

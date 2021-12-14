@@ -23,7 +23,7 @@ export const ItemDetail = ({
     description,
 }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
-    const { addCart, isInCart, accountTotal } = useContext(CartContext);
+    const { addCart, isInCart, accountTotal, cart } = useContext(CartContext);
 
     const handleAdd = () => {
         if (cartQuantity > 0) {
