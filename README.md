@@ -1,8 +1,16 @@
 # Acceso con permisos de Administrador
 
-[Brinda accesos al panel de control de stock]
+[ Brinda accesos al panel de control de stock ]
+
+<ul>
+<li>
 Cuenta: admin@admin.com
+</li>
+<li>
 Pass: admin123
+</li>
+
+</ul>
 
 # Getting Started with Create React App
 
