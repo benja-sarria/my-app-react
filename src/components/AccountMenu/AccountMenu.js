@@ -15,11 +15,13 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import "./AccountMenu.scss";
 import { UserContext } from "../Context/UserContext/UserContext.js";
 import { sessionLogOut } from "../../helpers/sessionLogOut.js";
+import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
 
 export function AccountMenu({ userName, photoURL }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const { setSignedUser, setLoggedIn, setReload, signedUser } =
         useContext(UserContext);
+    const { ditchCart } = useContext(CartContext);
 
     useEffect(() => {}, [photoURL, userName]);
     const open = Boolean(anchorEl);
@@ -31,6 +33,8 @@ export function AccountMenu({ userName, photoURL }) {
     };
 
     const logOutSignedUser = () => {
+        console.log(signedUser);
+        // ditchCart();
         sessionLogOut(setSignedUser, setReload, setLoggedIn);
     };
 

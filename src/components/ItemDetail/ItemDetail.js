@@ -60,6 +60,9 @@ export const ItemDetail = ({
                     <p className="card-text detail-page-text description-page-text">
                         {description}
                     </p>
+                    <p className="card-text detail-page-text description-page-text stock-text">
+                        Cantidad en stock: {stock} unidades.
+                    </p>
                     <p className="card-text detail-page-text">
                         $ &nbsp; {Intl.NumberFormat().format(price)}
                     </p>

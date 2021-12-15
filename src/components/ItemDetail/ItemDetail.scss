@@ -81,6 +81,12 @@
                 overflow-y: scroll;
                 padding-right: 1em;
             }
+            .stock-text {
+                justify-self: left;
+                text-align: left;
+                min-width: 100%;
+                font-weight: 300;
+            }
             .divisor {
                 background-color: var(--globalGreenHighlight-background-color);
                 border-color: var(--globalGreenHighlight-background-color);

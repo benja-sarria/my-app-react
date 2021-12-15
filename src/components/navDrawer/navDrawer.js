@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -12,6 +12,7 @@ import { CartWidget } from "../CartWidget/CartWidget.js";
 import "./NavDrawer.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { UserContext } from "../Context/UserContext/UserContext.js";
 
 export default function TemporaryDrawer({ addedProd }) {
     const [state, setState] = React.useState({
@@ -20,8 +21,23 @@ export default function TemporaryDrawer({ addedProd }) {
         bottom: false,
         right: false,
     });
+    const [authenticated, setAuthenticated] = useState(false);
 
-    const authenticated = true;
+    const { signedUser } = useContext(UserContext);
+
+    useEffect(() => {
+        console.log(signedUser);
+        if (signedUser.user.uid) {
+            console.log();
+            if (
+                signedUser.user.uid === "z0OZSSLFI8d0ogoxbS7EQQIgdmv1" ||
+                signedUser.user.uid === "g5hNe4tSQGRvWiIGkZIe85QSc522"
+            ) {
+                setAuthenticated(true);
+                console.log(authenticated);
+            }
+        }
+    }, [signedUser, authenticated]);
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -93,20 +109,19 @@ export default function TemporaryDrawer({ addedProd }) {
             </List>
             <Divider />
             <List>
-                {[`Contacto`, `${authenticated ? "Database Admin" : null}`].map(
-                    (text, index) => (
-                        <ListItem button key={text}>
-                            <Link
-                                to={`${
-                                    text === "Database Admin" ? "/stock" : "/"
-                                }`}
-                                className="link-item"
-                            >
-                                <ListItemText primary={text} />
-                            </Link>
-                        </ListItem>
-                    )
-                )}
+                {(authenticated
+                    ? [`Contacto`, `${authenticated ? "Database Admin" : ""}`]
+                    : [`Contacto`]
+                ).map((text, index) => (
+                    <ListItem button key={text}>
+                        <Link
+                            to={`${text === "Database Admin" ? "/stock" : "/"}`}
+                            className="link-item"
+                        >
+                            <ListItemText primary={text} />
+                        </Link>
+                    </ListItem>
+                ))}
             </List>
         </Box>
     );

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { getSessionCart } from "../../../helpers/getSessionCart.js";
 import { setSessionCart } from "../../../helpers/setSessionCart.js";
+import { UserContext } from "../UserContext/UserContext.js";
 
 export const CartContext = createContext();
 
@@ -66,15 +67,21 @@ export const CartContextProvider = ({
         }, 0);
     };
 
+    const { signedUser, loggedIn } = useContext(UserContext);
+
     useEffect(() => {
         if (cart.length === 0) {
             console.log("recuperando carrito de la sesión");
-            getSessionCart(setCart, cart);
+            getSessionCart(setCart, cart, signedUser, ditchCart, loggedIn);
         }
-    }, []);
+    }, [loggedIn]);
 
     useEffect(() => {
-        setSessionCart(cart);
+        if (signedUser.user.uid) {
+            let identifiedCart = { ...cart, userID: `${signedUser.user.uid}` };
+            console.log(identifiedCart);
+            setSessionCart(identifiedCart, signedUser);
+        }
     }, [cart]);
 
     return (

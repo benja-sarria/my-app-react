@@ -60,10 +60,14 @@ export const Checkout = () => {
         email: `${
             loggedIn && signedUser.providerId === "google.com"
                 ? signedUser.user.email
+                : signedUser.user.providerData
+                ? signedUser.user.email
                 : ""
         }`,
         emailConfirm: `${
             loggedIn && signedUser.providerId === "google.com"
+                ? signedUser.user.email
+                : signedUser.user.providerData
                 ? signedUser.user.email
                 : ""
         }`,
@@ -137,7 +141,12 @@ export const Checkout = () => {
                 console.log(response.id);
                 let index = 0;
                 Swal.fire({
-                    title: `¡Felicitaciones ${signedUser.user.displayName}!`,
+                    title: `¡Felicitaciones ${
+                        signedUser.user.displayName || signedUser.displayName
+                            ? signedUser.user.displayName ||
+                              signedUser.displayName
+                            : `${values.name} ${values.lastName}`
+                    }!`,
                     html: ` <h5 class="buy-list-subtitle">Tu compra se realizó con éxito. Tu código de orden es el siguiente: <span class="buy-list-highlight"> ${
                         response.id
                     }</span> .</h5> 
