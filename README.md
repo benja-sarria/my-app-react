@@ -1,3 +1,9 @@
+# Acceso con permisos de Administrador
+
+[Brinda accesos al panel de control de stock]
+Cuenta: admin@admin.com
+Pass: admin123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
