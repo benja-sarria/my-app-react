@@ -1,29 +1,17 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { ItemCountEnabler } from "../ItemCountEnabler/ItemCountEnabler.js";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./ItemDetail.scss";
 import { ItemCount } from "../ItemCount/ItemCount.js";
-import {
-    CartContextProvider,
-    CartContext,
-} from "../Context/CartContextProvider/CartContextProvider.js";
+import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
 import { CartWidget } from "../CartWidget/CartWidget.js";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-export const ItemDetail = ({
-    id,
-    name,
-    price,
-    img,
-    category,
-    stock,
-    description,
-}) => {
+export const ItemDetail = ({ id, name, price, img, stock, description }) => {
     const [cartQuantity, setCartQuantity] = useState(0);
-    const { addCart, isInCart, accountTotal, cart } = useContext(CartContext);
+    const { addCart, isInCart, accountTotal } = useContext(CartContext);
 
     const handleAdd = () => {
         if (cartQuantity > 0) {
