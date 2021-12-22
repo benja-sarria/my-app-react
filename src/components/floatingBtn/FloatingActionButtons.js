@@ -4,7 +4,6 @@ import Fab from "@mui/material/Fab";
 import { CartWidget } from "../CartWidget/CartWidget.js";
 import "./FloatingActionButtons.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { findAllByDisplayValue } from "@testing-library/react";
 import { Link } from "react-router-dom";
 
 export default function FloatingActionButtons({ addedProducts }) {

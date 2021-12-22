@@ -5,14 +5,11 @@ import { Navigate } from "react-router-dom";
 import {
     collection,
     addDoc,
-    doc,
     writeBatch,
     documentId,
-    updateDoc,
     getDocs,
     query,
     where,
-    orderBy,
     Timestamp,
 } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";

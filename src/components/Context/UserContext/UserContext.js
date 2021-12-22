@@ -10,12 +10,6 @@ export const UserContextProvider = ({
     setLoggedIn,
     setReload,
 }) => {
-    /*  const [signedUser, setSignedUser] = useState({
-        user: {
-            displayName: "",
-        },
-    }); */
-
     return (
         <UserContext.Provider
             value={{

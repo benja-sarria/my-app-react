@@ -19,7 +19,7 @@ export const validarDatos = (values) => {
         return true;
     }
 
-    if (values.lastName.length < 4) {
+    if (values.lastName.length < 3) {
         Swal.fire({
             icon: "error",
             title: "Apellido inválido",
@@ -29,17 +29,17 @@ export const validarDatos = (values) => {
     if (!validateEmail(values.email)) {
         Swal.fire({
             icon: "error",
-            title: "email inválido",
+            title: "E-mail inválido",
         });
         return true;
     }
-    /*  if (values.emailConfirm !== values.email) {
+    if (values.emailConfirm !== values.email) {
         Swal.fire({
             icon: "error",
-            title: "email inválido",
+            title: "Los E-mail no coinciden",
         });
-        return;
-    } */
+        return true;
+    }
 
     return false;
 };

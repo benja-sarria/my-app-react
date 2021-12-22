@@ -2,7 +2,6 @@
     min-width: 8em;
 
     .css-hz2c15-MuiButtonBase-root-MuiFab-root {
-        // transition: all 3000ms ease;
         position: fixed;
         bottom: 4vh;
         right: 3vw;
@@ -10,8 +9,6 @@
         &:hover {
             background-color: var(--globalGreenGradient2-background-color);
         }
-        /* .css-i4bv87-MuiSvgIcon-root {
-        } */
     }
 }
 

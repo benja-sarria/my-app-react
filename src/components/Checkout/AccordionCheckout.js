@@ -11,7 +11,6 @@ export function AccordionCheckout({ list }) {
     const { totalCompras } = useContext(CartContext);
     const parsedList = JSON.parse(list);
     let checkoutArray = [];
-    let counter = 0;
     for (const key in parsedList) {
         if (Object.hasOwnProperty.call(parsedList, key)) {
             let element = parsedList[key];
