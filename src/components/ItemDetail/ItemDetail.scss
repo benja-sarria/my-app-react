@@ -22,14 +22,26 @@
         .img-container {
             overflow-y: hidden;
             min-height: 100%;
-            max-width: 15em;
+            max-width: 25em;
+            min-width: 15em;
             max-height: 28.5em;
-            min-height: 28.5em;
+            // min-height: 28.5em;
             overflow: hidden;
             border-radius: 1.5em 0em 0em 1.5em;
+            background-color: rgba(128, 0, 128, 0.151);
+            background-image: linear-gradient(
+                to bottom,
+                rgba(
+                    var(--globalGreenHighlight-background-color-r),
+                    var(--globalGreenHighlight-background-color-g),
+                    var(--globalGreenHighlight-background-color-b),
+                    0.25
+                ),
+                transparent
+            );
             .card-img-top {
-                min-height: 200%;
-                min-width: 200%;
+                // min-height: 100%;
+                min-width: 100%;
                 position: relative;
                 /*  @media (min-width: 1300px) {
                     bottom: 15vh;
@@ -41,13 +53,15 @@
                     bottom: 15vh;
                 } */
                 bottom: 0vh;
+                border-bottom-left-radius: 1em;
+                border-bottom-right-radius: 1em;
             }
         }
         .card-body {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: flex-start;
+            margin: 0 auto;
             background-color: rgba(
                 var(--globalGreenHighlight-background-color-r),
                 var(--globalGreenHighlight-background-color-g),
@@ -64,55 +78,72 @@
                 ),
                 transparent
             );
-            border-radius: 0em 0em 1.25em 1.25em;
-            .card-title {
-            }
-            .detail-page-title {
-                font-size: 2em;
-            }
-            .detail-page-text {
-                font-size: 1.5em;
-            }
-            .card-text {
-            }
-            .description-page-text {
-                font-size: 1em;
-                max-height: 20vh;
-                overflow-y: scroll;
-                padding-right: 1em;
-            }
-            .stock-text {
-                justify-self: left;
-                text-align: left;
-                min-width: 100%;
-                font-weight: 300;
-            }
-            .divisor {
-                background-color: var(--globalGreenHighlight-background-color);
-                border-color: var(--globalGreenHighlight-background-color);
-                z-index: 5;
-                min-width: 100%;
-            }
-            .item-counter-component {
-                margin: 0 auto;
-            }
-            .checkout-btn {
-                min-height: 3em;
+            .card-body-section {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                align-self: center;
-                background-color: var(
-                    --globalContrastHighlight-background-color-three
-                );
-                border-color: var(
-                    --globalContrastHighlight-background-color-two
-                );
-                .checkout-text {
-                    text-align: center;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2em;
+                border-radius: 0em 0em 1.25em 1.25em;
+                min-height: 100%;
+                &:last-of-type {
+                    min-width: 22vw;
+                    justify-content: space-between;
+                    align-self: flex-start;
+                    border-left: 2px solid
+                        rgba(
+                            var(--globalGreenHighlight-background-color-r),
+                            var(--globalGreenHighlight-background-color-g),
+                            var(--globalGreenHighlight-background-color-b),
+                            0.25
+                        );
+                    padding-right: 0em;
+                }
+                .card-title {
+                }
+                .detail-page-title {
+                    font-size: 2em;
+                }
+                .detail-page-text {
+                    font-size: 1.5em;
+                }
+                .card-text {
+                }
+                .description-page-text {
+                    font-size: 1em;
+                    max-height: 40vh;
+                    max-width: 100%;
+                    overflow-y: visible;
+                    padding-right: 1em;
+                }
+                .stock-text {
+                    justify-self: left;
+                    text-align: left;
+                    min-width: 100%;
+                    font-weight: 300;
+                    overflow-y: hidden;
+                }
+
+                .item-counter-component {
+                    margin: 0 auto;
+                }
+                .checkout-btn {
+                    min-height: 3em;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     align-self: center;
-                    justify-self: center;
-                    margin: auto 1.2em;
+                    background-color: var(
+                        --globalContrastHighlight-background-color-three
+                    );
+                    border-color: var(
+                        --globalContrastHighlight-background-color-two
+                    );
+                    .checkout-text {
+                        text-align: center;
+                        align-self: center;
+                        justify-self: center;
+                        margin: auto 1.2em;
+                    }
                 }
             }
         }

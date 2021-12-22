@@ -31,6 +31,7 @@ import UpgradeIcon from "@mui/icons-material/Upgrade";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { StockModify } from "../StockModify/StockModify.js";
 
 export const StockPanel = () => {
     // Lo más versátil y mejor es lo siguiente con operadores spread:
@@ -235,6 +236,8 @@ export const StockPanel = () => {
                     handleInputChange={handleInputChange}
                     values={values}
                 />
+            ) : optionID === "update" ? (
+                <StockModify />
             ) : (
                 ""
             )}

@@ -56,40 +56,49 @@ export const ItemDetail = ({
                     <img src={img} alt={name} className="card-img-top" />
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title detail-page-title">{name}</h5>
-                    <p className="card-text detail-page-text description-page-text">
-                        {description}
-                    </p>
-                    <p className="card-text detail-page-text description-page-text stock-text">
-                        Cantidad en stock: {stock} unidades.
-                    </p>
-                    <p className="card-text detail-page-text">
-                        $ &nbsp; {Intl.NumberFormat().format(price)}
-                    </p>
-                    {/* <p className="card-text detail-page-text">{category}</p> */}
-                    <hr className="divisor" />
-                    {!isInCart(id) ? (
-                        <ItemCount
-                            max={stock}
-                            initial="0"
-                            cartQuantity={cartQuantity}
-                            setQuantity={setCartQuantity}
-                            handleAdd={handleAdd}
-                        />
-                    ) : (
-                        <Link
-                            to="/cart"
-                            className="btn btn-success checkout-btn"
-                        >
-                            <p className="checkout-text">Terminar mi compra </p>
-                            <CartWidget
-                                specialClass=""
-                                icon={<ShoppingCartIcon />}
-                                showBadge="0"
-                                addedProducts={`${accountTotal()}`}
-                            />
-                        </Link>
-                    )}
+                    <div className="card-body-section">
+                        <h5 className="card-title detail-page-title">{name}</h5>
+                        <p className="card-text detail-page-text description-page-text">
+                            {description}
+                        </p>
+                    </div>
+
+                    <div className="card-body-section">
+                        <p className="card-text detail-page-text">
+                            {" "}
+                            Precio por Unidad: <br /> ${" "}
+                            {Intl.NumberFormat().format(price)}
+                        </p>
+                        <div className="card-body-subsection">
+                            <p className="card-text detail-page-text description-page-text stock-text">
+                                Cantidad en stock: {stock} unidades.
+                            </p>
+                            {!isInCart(id) ? (
+                                <ItemCount
+                                    max={stock}
+                                    initial="0"
+                                    cartQuantity={cartQuantity}
+                                    setQuantity={setCartQuantity}
+                                    handleAdd={handleAdd}
+                                />
+                            ) : (
+                                <Link
+                                    to="/cart"
+                                    className="btn btn-success checkout-btn"
+                                >
+                                    <p className="checkout-text">
+                                        Terminar mi compra{" "}
+                                    </p>
+                                    <CartWidget
+                                        specialClass=""
+                                        icon={<ShoppingCartIcon />}
+                                        showBadge="0"
+                                        addedProducts={`${accountTotal()}`}
+                                    />
+                                </Link>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>

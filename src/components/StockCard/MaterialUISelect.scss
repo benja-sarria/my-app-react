@@ -1,0 +1,71 @@
+.MuiFormControl-root {
+    color: white;
+    .MuiInputLabel-root {
+        color: white;
+    }
+    .MuiOutlinedInput-root {
+        .MuiSelect-select {
+            border-color: white;
+            color: white;
+            &:hover {
+                color: var(--globalGreenHighlight-background-color);
+            }
+        }
+        .MuiSvgIcon-root {
+            color: white;
+            &:hover {
+                color: var(--globalGreenHighlight-background-color);
+            }
+        }
+        .MuiOutlinedInput-notchedOutline {
+            color: white;
+            border-color: rgba(255, 255, 255, 0.459);
+            border-top: none;
+            &:hover {
+                border-color: var(--globalGreenHighlight-background-color);
+            }
+            .css-186xcr5 {
+                color: red;
+            }
+        }
+    }
+    .MuiFormHelperText-root {
+        color: white;
+    }
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover
+    .MuiOutlinedInput-notchedOutline {
+    border-color: var(--globalGreenHighlight-background-color) !important;
+}
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiSvgIcon-root {
+    color: var(--globalGreenHighlight-background-color) !important;
+}
+
+.MuiModal-root {
+    .MuiBackdrop-root {
+    }
+    .css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+        max-height: 30vh;
+        overflow-y: scroll;
+    }
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border-color: var(--globalGreenHighlight-background-color) !important;
+}
+
+.Mui-focused {
+    color: var(--globalGreenHighlight-background-color) !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    .Mui-selected {
+        background-color: rgba(
+            var(--globalGreenHighlight-background-color-glitch-r),
+            var(--globalGreenHighlight-background-color-glitch-g),
+            var(--globalGreenHighlight-background-color-glitch-b),
+            0.2
+        ) !important;
+    }
+}
