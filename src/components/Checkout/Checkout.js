@@ -17,10 +17,8 @@ import {
 } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";
 import { UserContext } from "../Context/UserContext/UserContext.js";
-import { CartItem } from "../CartItem/CartItem.js";
 import Swal from "sweetalert2";
 import "./Checkout.scss";
-import { createElement } from "react";
 import { AccordionCheckout } from "./AccordionCheckout.js";
 
 export const Checkout = () => {
@@ -45,10 +43,6 @@ export const Checkout = () => {
             }
         }
         console.log(nameArray);
-    };
-
-    const handleEnviar = () => {
-        console.log(order);
     };
 
     const [values, setValues] = useState({
@@ -77,12 +71,6 @@ export const Checkout = () => {
                 : ""
         }`,
     });
-
-    const order = {
-        buyer: { ...values },
-        items: cart,
-        total: totalCompras(),
-    };
 
     // para capturar los valores de los input solemos trabajar con estados en react - Guardo los values de un input en un estado
 
@@ -177,21 +165,10 @@ export const Checkout = () => {
         } else {
             // renderizar que productos no hay
         }
-
-        console.log(q);
-
-        // carrito.forEach((prod) => {
-        //     const docRef = doc(productosRef, prod.id);
-
-        //     getDocs(docRef).then((doc) => {
-        //         if (doc.data().stock >= prod.cantidad) {
-        /* updateDoc(doc.ref, {
-                        stock: doc.data().stock - prod.cantidad,
-                    }); */
-        //         }
-        //     });
-        // });
     };
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         cart.forEach((element) => {
