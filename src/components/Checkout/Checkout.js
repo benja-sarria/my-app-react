@@ -213,7 +213,6 @@ export const Checkout = () => {
                 {values.name.length < 4 && (
                     <h2 className="error-message">
                         El nombre ingresado debe contener 4 o más caracteres
-                        inválido
                     </h2>
                 )}
                 <input
@@ -224,9 +223,9 @@ export const Checkout = () => {
                     placeholder="Apellido"
                     className="form-control my-2"
                 />
-                {values.lastName.length < 4 && (
+                {values.lastName.length < 3 && (
                     <h2 className="error-message">
-                        El apellido ingresado debe tener 4 o más caracteres
+                        El apellido ingresado debe tener 3 o más caracteres
                     </h2>
                 )}
 
@@ -257,7 +256,7 @@ export const Checkout = () => {
                     </h2>
                 )}
 
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary checkout-btn">
                     Enviar
                 </button>
             </form>

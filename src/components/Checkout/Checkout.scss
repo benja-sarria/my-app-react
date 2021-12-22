@@ -16,6 +16,29 @@
             border-color: rgba(61, 61, 61, 0.253);
             color: white;
         }
+        .error-message {
+            color: var(--globalContrastHighlight-background-color-two);
+            font-size: 1.15em;
+            font-family: "Readex Pro", sans-serif;
+            font-weight: 300;
+        }
+        .checkout-btn {
+            background-color: var(--globalGreenGradient1-background-color);
+            border-color: var(--globalGreenGradient1-background-color);
+            &:hover {
+                background-color: var(--globalGreenHighlight-background-color);
+            }
+            &:focus {
+                background-color: var(--globalGreenHighlight-background-color);
+                box-shadow: 0px 0px 15px 1px
+                    rgba(
+                        var(--globalGreenHighlight-background-color-r),
+                        var(--globalGreenHighlight-background-color-g),
+                        var(--globalGreenHighlight-background-color-b),
+                        0.4
+                    );
+            }
+        }
     }
 }
 
@@ -122,6 +145,24 @@
             margin-top: 0em;
             .swal2-confirm {
                 background-color: var(--globalGreenGradient1-background-color);
+                border-color: var(--globalGreenGradient1-background-color);
+                &:hover {
+                    background-color: var(
+                        --globalGreenHighlight-background-color
+                    );
+                }
+                &:focus {
+                    background-color: var(
+                        --globalGreenHighlight-background-color
+                    );
+                    box-shadow: 0px 0px 15px 1px
+                        rgba(
+                            var(--globalGreenHighlight-background-color-r),
+                            var(--globalGreenHighlight-background-color-g),
+                            var(--globalGreenHighlight-background-color-b),
+                            0.4
+                        );
+                }
             }
         }
     }

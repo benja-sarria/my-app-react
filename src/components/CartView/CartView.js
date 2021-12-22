@@ -25,7 +25,7 @@ export const CartView = () => {
     }, [cart, loading]);
     return loading ? (
         <div>
-            <LoaderComp />
+            <LoaderComp message={"Cargando tu cart..."} />
             <div
                 className={`backdrop-overlay ${
                     loading ? "visible" : "hidden"
