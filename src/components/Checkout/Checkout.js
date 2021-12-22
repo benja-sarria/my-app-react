@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
 import { validarDatos, validateEmail } from "./validarDatos.js";
 import { Navigate } from "react-router-dom";
@@ -20,6 +20,7 @@ import { UserContext } from "../Context/UserContext/UserContext.js";
 import { CartItem } from "../CartItem/CartItem.js";
 import Swal from "sweetalert2";
 import "./Checkout.scss";
+import { createElement } from "react";
 
 export const Checkout = () => {
     const { cart, totalCompras, ditchCart } = useContext(CartContext);
@@ -27,6 +28,8 @@ export const Checkout = () => {
     const { signedUser, loggedIn } = useContext(UserContext);
     console.log(signedUser);
     console.log(loggedIn);
+
+    const descriptionCheckout = useRef();
 
     const getLoggedUserName = (value) => {
         const nameArray = signedUser.user.displayName.split(/[\s,]+/);
@@ -188,6 +191,35 @@ export const Checkout = () => {
         // });
     };
 
+    useEffect(() => {
+        if (descriptionCheckout.current.children.length === 0) {
+            cart.forEach((element) => {
+                console.log(element);
+
+                let elementData = document.createElement("ul");
+                console.log(descriptionCheckout.current.children.length);
+
+                elementData.innerText = `Producto: ${element.name}`;
+                elementData.classList.add("checkout-description-list");
+                let cant = document.createElement("li");
+                let total = document.createElement("li");
+                cant.innerText = `Cantidad: ${element.cartQuantity} unidades`;
+                total.innerText = `Total: ${
+                    element.price * element.cartQuantity
+                }`;
+                cant.classList.add("checkout-description-text");
+                total.classList.add("checkout-description-text");
+
+                elementData.appendChild(cant);
+                elementData.appendChild(total);
+                console.log(elementData);
+                descriptionCheckout.current.innerHtml = elementData;
+                descriptionCheckout.current.appendChild(elementData);
+            });
+        }
+        console.dir(descriptionCheckout.current);
+    }, []);
+
     console.log(values.name);
 
     return cart.length === 0 ? (
@@ -195,6 +227,12 @@ export const Checkout = () => {
     ) : (
         <section className="checkout-order-container">
             <h2 className="checkout-section-title">Resumen de Compra</h2>
+            <div
+                ref={descriptionCheckout}
+                className="checkout-description-container"
+            >
+                {}
+            </div>
             <form
                 action="container m-5"
                 onSubmit={handleSubmit}
