@@ -3,14 +3,32 @@
     flex-direction: column;
     align-items: center;
     min-width: 60vw;
+    margin-bottom: 2em;
     .checkout-section-title {
         color: white;
         border-bottom: 2px solid white;
         padding: 0.5em;
+        margin-bottom: 0.75em;
+        align-self: flex-start;
+        margin-left: 4em;
+    }
+    .checkout-section-subtitle {
+        color: white;
+        font-weight: 300;
+        font-size: 1.7em;
+        border-bottom: 2px solid white;
+        padding: 0.5em;
         margin-bottom: 1em;
+        align-self: flex-start;
+        margin-left: 5em;
     }
     .checkout-form {
         min-width: 60vw;
+        align-self: flex-start;
+        margin-left: 10em;
+        display: flex;
+        flex-direction: column;
+
         .form-control {
             background-color: rgba(47, 47, 47, 0.253);
             border-color: rgba(61, 61, 61, 0.253);
@@ -22,26 +40,121 @@
             font-family: "Readex Pro", sans-serif;
             font-weight: 300;
         }
-        .checkout-btn {
-            background-color: var(--globalGreenGradient1-background-color);
-            border-color: var(--globalGreenGradient1-background-color);
-            &:hover {
-                background-color: var(--globalGreenHighlight-background-color);
-            }
-            &:focus {
-                background-color: var(--globalGreenHighlight-background-color);
-                box-shadow: 0px 0px 15px 1px
-                    rgba(
-                        var(--globalGreenHighlight-background-color-r),
-                        var(--globalGreenHighlight-background-color-g),
-                        var(--globalGreenHighlight-background-color-b),
-                        0.4
+        .button-container {
+            align-self: flex-end;
+            display: flex;
+            column-gap: 0.25em;
+            .cancel-btn {
+                min-width: 10em;
+                background-color: var(
+                    --globalContrastHighlight-background-color-three
+                );
+                border-color: var(
+                    --globalContrastHighlight-background-color-three
+                );
+                &:hover {
+                    background-color: var(
+                        --globalContrastHighlight-background-color-two
                     );
+                }
+                &:focus {
+                    background-color: var(
+                        --globalContrastHighlight-background-color-two
+                    );
+                    box-shadow: 0px 0px 15px 1px
+                        rgba(
+                            var(
+                                --globalContrastHighlight-background-color-alt-r
+                            ),
+                            var(
+                                --globalContrastHighlight-background-color-alt-g
+                            ),
+                            var(
+                                --globalContrastHighlight-background-color-alt-b
+                            ),
+                            0.4
+                        );
+                }
+            }
+            .checkout-btn {
+                background-color: var(--globalGreenGradient1-background-color);
+                border-color: var(--globalGreenGradient1-background-color);
+                min-width: 15em;
+                &:hover {
+                    background-color: var(
+                        --globalGreenHighlight-background-color
+                    );
+                }
+                &:focus {
+                    background-color: var(
+                        --globalGreenHighlight-background-color
+                    );
+                    box-shadow: 0px 0px 15px 1px
+                        rgba(
+                            var(--globalGreenHighlight-background-color-r),
+                            var(--globalGreenHighlight-background-color-g),
+                            var(--globalGreenHighlight-background-color-b),
+                            0.4
+                        );
+                }
             }
         }
     }
     .checkout-description-container {
         color: white;
+        display: flex;
+        flex-wrap: wrap;
+        text-decoration: none;
+        list-style: none;
+        font-family: "Readex Pro", sans-serif;
+        max-width: 80vw;
+        row-gap: 0.5em;
+        column-gap: 0.8em;
+        .checkout-description-list {
+            color: var(--globalGreenHighlight-background-color);
+            border: 2px solid var(--globalGreenHighlight-background-color);
+            padding: 0.8em;
+            display: inline-flex;
+            flex-direction: column;
+
+            &:nth-child(odd) {
+                // border-right: 0px solid transparent;
+                // border-left: 0px solid transparent;
+                float: right;
+                clear: right;
+            }
+            /*  &:nth-child(n + 2) {
+                float: right;
+            } */
+
+            &:nth-child(2n)::after {
+                content: "";
+                float: right;
+                clear: right;
+                width: 100%;
+            }
+
+            &:first-of-type {
+                border-top-left-radius: 1em;
+                border-bottom-left-radius: 1em;
+                border-left: 2px solid
+                    var(--globalGreenHighlight-background-color);
+                // margin-left: 0.8em;
+            }
+            &:last-of-type {
+                border-top-right-radius: 1em;
+                border-bottom-right-radius: 1em;
+                // margin-right: 0.8em;
+                border-right: 2px solid
+                    var(--globalGreenHighlight-background-color);
+            }
+
+            .checkout-description-text {
+                list-style: none;
+                font-weight: 200;
+                color: var(--globalGreenGradient1-background-color);
+            }
+        }
     }
 }
 

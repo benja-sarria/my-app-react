@@ -1,0 +1,62 @@
+.accordion-container {
+    min-width: 80vw;
+    font-family: "Readex Pro", sans-serif;
+    padding-bottom: 1em;
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid
+        rgba(
+            var(--globalContrastHighlight-background-color-alt-r),
+            var(--globalContrastHighlight-background-color-alt-g),
+            var(--globalContrastHighlight-background-color-alt-b),
+            0.25
+        );
+    border-width: 1em;
+    .MuiAccordion-root {
+        min-width: 100%;
+        background-color: rgba(0, 0, 0, 0.109);
+        border: 1px solid var(--globalGreenHighlight-background-color-glitch);
+        .MuiCollapse-entered {
+            .css-smkl36-MuiCollapse-wrapper {
+                .MuiCollapse-wrapperInner {
+                    .MuiAccordion-region {
+                        .MuiAccordionDetails-root {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            // max-height: 80vh;
+                            padding: 1.5em;
+                            .checkout-description-list {
+                                max-width: 50%;
+                                min-width: 32%;
+                            }
+                        }
+                        .checkout-total-container {
+                            padding: 0em 2em 0.75em 2em;
+                            .checkout-total-description {
+                                color: var(
+                                    --globalGreenHighlight-background-color-glitch
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .MuiAccordionSummary-gutters {
+            .MuiAccordionSummary-content {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                .MuiTypography-body1 {
+                    font-family: "Readex Pro", sans-serif;
+                    color: var(--globalGreenHighlight-background-color-glitch);
+                }
+            }
+        }
+        .MuiAccordionSummary-expandIconWrapper {
+            .MuiSvgIcon-root {
+                color: var(--globalGreenHighlight-background-color);
+            }
+        }
+    }
+}

@@ -21,8 +21,10 @@ import { CartItem } from "../CartItem/CartItem.js";
 import Swal from "sweetalert2";
 import "./Checkout.scss";
 import { createElement } from "react";
+import { AccordionCheckout } from "./AccordionCheckout.js";
 
 export const Checkout = () => {
+    const [entireList, setEntireList] = useState([]);
     const { cart, totalCompras, ditchCart } = useContext(CartContext);
 
     const { signedUser, loggedIn } = useContext(UserContext);
@@ -192,33 +194,43 @@ export const Checkout = () => {
     };
 
     useEffect(() => {
-        if (descriptionCheckout.current.children.length === 0) {
-            cart.forEach((element) => {
+        cart.forEach((element) => {
+            if (!entireList[element.name]) {
                 console.log(element);
 
+                let elementObject = {
+                    [element.name]: {
+                        name: element.name,
+                        quantity: element.cartQuantity,
+                        total: element.price * element.cartQuantity,
+                    },
+                };
                 let elementData = document.createElement("ul");
-                console.log(descriptionCheckout.current.children.length);
+                // console.log(descriptionCheckout.current.children.length);
 
                 elementData.innerText = `Producto: ${element.name}`;
                 elementData.classList.add("checkout-description-list");
                 let cant = document.createElement("li");
                 let total = document.createElement("li");
                 cant.innerText = `Cantidad: ${element.cartQuantity} unidades`;
-                total.innerText = `Total: ${
+                total.innerText = `Total: $ ${Intl.NumberFormat().format(
                     element.price * element.cartQuantity
-                }`;
+                )}`;
                 cant.classList.add("checkout-description-text");
                 total.classList.add("checkout-description-text");
 
                 elementData.appendChild(cant);
                 elementData.appendChild(total);
-                console.log(elementData);
-                descriptionCheckout.current.innerHtml = elementData;
-                descriptionCheckout.current.appendChild(elementData);
-            });
-        }
-        console.dir(descriptionCheckout.current);
-    }, []);
+                setEntireList({
+                    ...entireList,
+                    ...elementObject,
+                });
+
+                console.log(entireList);
+                // console.log(typeof entireList);
+            }
+        });
+    }, [entireList]);
 
     console.log(values.name);
 
@@ -226,13 +238,16 @@ export const Checkout = () => {
         <Navigate to="/" />
     ) : (
         <section className="checkout-order-container">
-            <h2 className="checkout-section-title">Resumen de Compra</h2>
+            <h2 className="checkout-section-title">Termina tu Compra</h2>
             <div
                 ref={descriptionCheckout}
                 className="checkout-description-container"
             >
+                <AccordionCheckout list={JSON.stringify(entireList)} />
                 {}
             </div>
+            <h3 className="checkout-section-subtitle">Información de Pago</h3>
+
             <form
                 action="container m-5"
                 onSubmit={handleSubmit}
@@ -293,10 +308,20 @@ export const Checkout = () => {
                         Los e-mail no coinciden, revisa el campo anterior
                     </h2>
                 )}
-
-                <button type="submit" className="btn btn-primary checkout-btn">
-                    Enviar
-                </button>
+                <div className="button-container">
+                    <button
+                        className="btn btn-primary cancel-btn"
+                        onClick={ditchCart}
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="submit"
+                        className="btn btn-primary checkout-btn"
+                    >
+                        Comprar
+                    </button>
+                </div>
             </form>
         </section>
     );
