@@ -19,6 +19,7 @@ import "./StockModify.scss";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router";
+import { LoaderComp } from "../LoaderComp/LoaderComp.js";
 
 export const StockModify = () => {
     const [loading, setLoading] = useState(false);
@@ -51,6 +52,7 @@ export const StockModify = () => {
     };
 
     useEffect(() => {
+        setLoading(true);
         // 1- ARMAMOS LA REFERENCIA
         const productsRef = collection(database, "products");
 
@@ -86,16 +88,25 @@ export const StockModify = () => {
                 <ArrowBackIcon />
                 <span className="back-text"> Atrás</span>
             </IconButton>
-            <section className="modify-stock-section">
-                {databaseItems.map((prod) => (
-                    <StockCard
-                        key={prod.id}
-                        {...prod}
-                        handleModify={handleModify}
-                        determineActualStock={determineActualStock}
-                    />
-                ))}
-            </section>
+            {loading ? (
+                <LoaderComp message={"Buscando en DB..."} />
+            ) : (
+                <section className="modify-stock-section">
+                    {databaseItems.map((prod) => (
+                        <StockCard
+                            key={prod.id}
+                            {...prod}
+                            handleModify={handleModify}
+                            determineActualStock={determineActualStock}
+                        />
+                    ))}
+                </section>
+            )}
+            <div
+                className={`backdrop-overlay ${
+                    loading ? "visible" : "hidden"
+                } detail-container`}
+            ></div>
         </>
     );
 };

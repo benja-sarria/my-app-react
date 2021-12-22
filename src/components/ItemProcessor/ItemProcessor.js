@@ -86,7 +86,7 @@ export const ItemProcessor = ({ catID, setSelectorsLoaded }) => {
     return (
         <>
             {loading ? (
-                <LoaderComp />
+                <LoaderComp message={"Sorpréndete..."} />
             ) : (
                 <ItemList productos={productos} categoria={categoria} />
             )}

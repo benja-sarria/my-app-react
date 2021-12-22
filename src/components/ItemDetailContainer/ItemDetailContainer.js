@@ -43,7 +43,11 @@ export const ItemDetailContainer = () => {
 
     return (
         <div className="details-container">
-            {loading ? <LoaderComp /> : <ItemDetail {...item} />}
+            {loading ? (
+                <LoaderComp message={"Sorpréndete..."} />
+            ) : (
+                <ItemDetail {...item} />
+            )}
             <div
                 className={`backdrop-overlay ${
                     loading ? "visible" : "hidden"
