@@ -6,10 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import "./AccountMenu.scss";
@@ -21,7 +18,6 @@ export function AccountMenu({ userName, photoURL }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const { setSignedUser, setLoggedIn, setReload, signedUser } =
         useContext(UserContext);
-    const { ditchCart } = useContext(CartContext);
 
     useEffect(() => {}, [photoURL, userName]);
     const open = Boolean(anchorEl);
@@ -34,7 +30,6 @@ export function AccountMenu({ userName, photoURL }) {
 
     const logOutSignedUser = () => {
         console.log(signedUser);
-        // ditchCart();
         sessionLogOut(setSignedUser, setReload, setLoggedIn);
     };
 
@@ -173,66 +168,6 @@ export function AccountMenu({ userName, photoURL }) {
                     </MenuItem>
                 </Menu>
             )}
-            {/*  <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                    elevation: 0,
-                    sx: {
-                        overflow: "visible",
-                        filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                        mt: 1.5,
-                        bgcolor: "rgba(0,0,0,0.35)",
-                        border: "2px solid  var(--globalGreenHighlight-background-color-glitch)",
-                        color: "white",
-                        "& .MuiAvatar-root": {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                        },
-                        "&:before": {
-                            content: '""',
-                            display: "block",
-                            position: "absolute",
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: "black",
-                            transform: "translateY(-50%) rotate(45deg)",
-                            zIndex: 0,
-                            borderTop:
-                                "2px solid var(--globalGreenHighlight-background-color-glitch)",
-                            borderLeft:
-                                "2px solid var(--globalGreenHighlight-background-color-glitch)",
-                        },
-                    },
-                }}
-                transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-            >
-                <MenuItem>
-                    <Avatar alt={userName} src={photoURL} />{" "}
-                    {userName ? userName : signedUser.displayName}
-                </MenuItem>
-                <Divider />
-
-                <MenuItem>
-                    <ListItemIcon>
-                        <ShoppingBasketIcon fontSize="small" />
-                    </ListItemIcon>
-                    Mis órdenes
-                </MenuItem>
-                <MenuItem onClick={logOutSignedUser}>
-                    <ListItemIcon>
-                        <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Cerrar Sesión
-                </MenuItem>
-            </Menu> */}
         </>
     );
 }

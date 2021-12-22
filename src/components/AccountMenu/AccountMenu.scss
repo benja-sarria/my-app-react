@@ -1,11 +1,7 @@
-.MuiTooltip-popper {
-}
-
 .MuiPaper-root {
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
     .MuiList-root {
-        // background-color: rgba(0, 0, 0, 0.8) !important;
         .MuiMenuItem-root {
             transition: background 500ms ease;
             &:hover {
