@@ -1,34 +1,16 @@
 .cart-item-container {
     display: flex;
     align-items: center;
-    border-bottom: 2px solid
-        rgba(
-            var(--globalGreenHighlight-background-color-r),
-            var(--globalGreenHighlight-background-color-g),
-            var(--globalGreenHighlight-background-color-b),
-            0.35
-        );
+    border-bottom: 2px solid rgba(0, 196, 147, 0.35);
     .css-1k9ek97 {
         background-color: transparent;
         display: flex;
         align-items: flex-start;
-        border-right: 2px solid
-            rgba(
-                var(--globalGreenHighlight-background-color-r),
-                var(--globalGreenHighlight-background-color-g),
-                var(--globalGreenHighlight-background-color-b),
-                0.35
-            );
+        border-right: 2px solid rgba(0, 196, 147, 0.35);
         .MuiList-padding {
             min-width: 80vw;
             max-width: 80vw;
-            border-right: 2px solid
-                rgba(
-                    var(--globalGreenHighlight-background-color-r),
-                    var(--globalGreenHighlight-background-color-g),
-                    var(--globalGreenHighlight-background-color-b),
-                    0.25
-                );
+            border-right: 2px solid rgba(0, 196, 147, 0.25);
 
             .MuiListItem-padding {
                 .MuiListItemSecondaryAction-root {
