@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "./ItemCounter.scss";
 import { Button } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { CartWidget } from "../CartWidget/CartWidget.js";
-import {
-    CartContextProvider,
-    CartContext,
-} from "../Context/CartContextProvider/CartContextProvider.js";
+import { CartContext } from "../Context/CartContextProvider/CartContextProvider.js";
 
 export const ItemCount = ({
     max,
@@ -15,8 +12,6 @@ export const ItemCount = ({
     setQuantity,
     handleAdd,
 }) => {
-    const { accountTotal } = useContext(CartContext);
-
     const handleSubtracting = () => {
         if (cartQuantity > 0) {
             setQuantity(cartQuantity - 1);

@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from "react";
 // metodos firebase
-import {
-    collection,
-    addDoc,
-    doc,
-    writeBatch,
-    documentId,
-    updateDoc,
-    getDocs,
-    query,
-    where,
-    orderBy,
-    Timestamp,
-} from "firebase/firestore/lite";
+import { collection, writeBatch, getDocs } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";
 import { StockCard } from "../StockCard/StockCard.js";
 import "./StockModify.scss";

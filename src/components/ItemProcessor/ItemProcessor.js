@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { PedirDatos } from "../../helpers/PedirDatos.js";
 import { ItemList } from "../ItemList/ItemList.js";
 import { stock } from "../../data/stock.js";
 import "./ItemProcessor.scss";
 import { LoaderComp } from "../LoaderComp/LoaderComp.js";
 import { handleTop } from "../../helpers/handleTop.js";
 // metodos firebase
-import {
-    collection,
-    getDocs,
-    query,
-    where,
-    orderBy,
-} from "firebase/firestore/lite";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
 import { database } from "../../firebase/config.js";
 
-export const ItemProcessor = ({ catID, setSelectorsLoaded }) => {
+export const ItemProcessor = ({ catID }) => {
     //    para hacer el "cargando" lo podemos hacer con un hook useState
     const [loading, setLoading] = useState(false);
     const [productos, setProductos] = useState([]);
@@ -60,22 +53,6 @@ export const ItemProcessor = ({ catID, setSelectorsLoaded }) => {
                 setLoading(false);
             });
 
-        // PedirDatos()
-        //     // el parámetro del then captura el valor del resolve de la promesa (puede tener el nombre que quiera pero se usa response por convención)
-        //     .then((response) => {
-        //         /* la mejor forma para que queden cargados los productos en mi componente es cargarlos en algún estado - de lo contrario la respuesta muere en este scope, sin poder mandarla en el return del componente*/
-        //         setProductos(response);
-        //         console.log(response);
-        //     })
-        //     // el parámetro del then captura el valor del reject de la promesa (puede tener el nombre que quiera pero se usa response por convención)
-        //     .catch((error) => {
-        //         console.log(error);
-        //     })
-        //     // se ejecuta siempre después del .then o el .catch
-        //     .finally(() => {
-        //         setLoading(false);
-        //         setSelectorsLoaded(true);
-        //     });
         return () => {
             window.removeEventListener("scroll", handleTop);
         };

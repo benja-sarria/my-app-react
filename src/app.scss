@@ -1,14 +1,10 @@
 @import url("http://fonts.cdnfonts.com/css/planet");
-// @import url("http://fonts.cdnfonts.com/css/astana");
-// @import url("http://fonts.cdnfonts.com/css/monopoly");
-// @import url("http://fonts.cdnfonts.com/css/sumptuous");
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400&display=swap");
 
 .app {
     background-color: transparent;
 }
 ::-webkit-scrollbar {
-    // display: none;
     background-color: var(--globalGreenGradient2-background-color);
     width: 0.15em;
     opacity: 0.015;
@@ -22,10 +18,4 @@
         currentColor 200%
     );
     opacity: 0.015;
-
-    /* 
-    background-color: transparentize(
-        $color: map-get($map: $generalpalette, $key: tealmain),
-        $amount: 0.3
-    ); */
 }

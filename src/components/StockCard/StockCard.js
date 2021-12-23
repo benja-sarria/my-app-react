@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import { SelectLabels } from "./MaterialUiSelect.js";
 
 // si recibo el objeto lo recibo export const Item = ({ prod })  // sino lo recibo así

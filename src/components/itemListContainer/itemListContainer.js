@@ -13,7 +13,7 @@ export const ItemListContainer = ({
     greetingFunction,
 }) => {
     const [selectorsLoaded, setSelectorsLoaded] = useState(false);
-    const [greeting, setgreeting] = useState("");
+    const [greeting, setGreeting] = useState("");
     console.log(greetingMsg);
     let path = "";
     let { catID } = useParams();
@@ -60,7 +60,7 @@ export const ItemListContainer = ({
                 return greeting;
             }
         };
-        setgreeting(determineName());
+        setGreeting(determineName());
     }, [greeting]);
 
     greetingFunction && greetingFunction(catID);

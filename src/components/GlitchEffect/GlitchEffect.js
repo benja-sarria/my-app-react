@@ -20,20 +20,20 @@ export const GlitchEffect = ({ msg, restMsg, site }) => {
                     <span
                         className={`stack-1 ${
                             site === "login" ? "login-text" : ""
-                        }`} /* style={`--index: 1;`} */
+                        }`}
                     >
                         {msg}
                     </span>
                     <span
                         className={`stack-2 ${
                             site === "login" ? "login-text" : ""
-                        }`} /* style={`--index: 2;`} */
+                        }`}
                     >
                         {msg}
                     </span>
                 </span>
             </h2>
-            <div className="stack" /* style={`--stacks: 3;`} */></div>
+            <div className="stack"></div>
         </div>
     );
 };

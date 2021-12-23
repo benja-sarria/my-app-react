@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.scss";
 import "./base/_baseStyles.scss";
@@ -6,28 +6,20 @@ import NavBar from "./components/NavBar/NavBar.js";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer.js";
 import FloatingActionButtons from "./components/FloatingBtn/FloatingActionButtons.js";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer.js";
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-    Navigate,
-    useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { capitalizeFirstLetter } from "./helpers/capitalizeLetter.js";
 import { DiscoverContainer } from "./components/DiscoverContainer/DiscoverContainer.js";
 import { CartContextProvider } from "./components/Context/CartContextProvider/CartContextProvider.js";
-import { CartContext } from "./components/Context/CartContextProvider/CartContextProvider.js";
 import { CartView } from "./components/CartView/CartView.js";
 import { PathRoute } from "./components/Context/PathRoute/PathRoute.js";
 import { StockPanel } from "./components/StockPanel/StockPanel.js";
 import { Checkout } from "./components/Checkout/Checkout.js";
-import { SignUp } from "./components/SignUp/SignUp.js";
 import { Login } from "./components/Login/Login.js";
 import { UserContextProvider } from "./components/Context/UserContext/UserContext.js";
 import { getSessionUser } from "./helpers/getSessionUser.js";
 
 function App() {
-    let greeting, greetingMsg;
+    let greetingMsg;
     let userName = "Planet Sushi";
     const [actualCategory, setActualCategory] = useState(
         window.location.pathname
@@ -208,5 +200,3 @@ function App() {
 }
 
 export default App;
-
-// el fragment en react nos permite no incorporar divs sin sentido; para ello necesitamos en la app borrar el "div" dentro de las <> </> - Aunque al fragment no le podemos dar clases de estilo

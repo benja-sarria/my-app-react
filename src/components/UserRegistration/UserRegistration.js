@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -9,19 +9,12 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FilledInput from "@mui/material/FilledInput";
 import InputLabel from "@mui/material/InputLabel";
-import { useParams } from "react-router";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import Input from "@mui/material/Input";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import FormHelperText from "@mui/material/FormHelperText";
 import { GlitchEffect } from "../GlitchEffect/GlitchEffect";
-import { Link } from "react-router-dom";
-import { UserContext } from "../Context/UserContext/UserContext.js";
-import GoogleIcon from "@mui/icons-material/Google";
 import "./UserRegistration.scss";
 import { useNavigate } from "react-router";
 

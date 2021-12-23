@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { SignUp } from "../SignUp/SignUp";
 import { useParams, useNavigate } from "react-router";
-import { app } from "../../firebase/config.js";
 import { UserContext } from "../Context/UserContext/UserContext.js";
 import { UserRegistration } from "../UserRegistration/UserRegistration.js";
 import {
     getAuth,
-    getRedirectResult,
     GoogleAuthProvider,
-    signInWithRedirect,
     signInWithPopup,
     signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -56,9 +53,7 @@ export const Login = ({ setReload, setLoggedIn, location }) => {
         navigate("/");
     };
 
-    useEffect(() => {
-        /*   navigate("/auth/login"); */
-    }, []);
+    useEffect(() => {}, []);
 
     const googleLoginHandler = () => {
         const auth = getAuth();
@@ -132,17 +127,6 @@ export const Login = ({ setReload, setLoggedIn, location }) => {
                     anonymousLoginHandler={anonymousLoginHandler}
                 />
             )}
-
-            {/* <SignUp
-                values={values}
-                setValues={setValues}
-                handleChange={handleChange}
-                handleClickShowPassword={handleClickShowPassword}
-                handleMouseDownPassword={handleMouseDownPassword}
-                authType={authType}
-                googleLoginHandler={googleLoginHandler}
-                anonymousLoginHandler={anonymousLoginHandler}
-            ></SignUp> */}
         </>
     );
 };

@@ -1,9 +1,3 @@
-// Cada componente solamente puede retornar un componente. Con lo cual, solamente puedo anidar componentes, no retornar varios
-
-// También puedo exportar con export al lado de la declaración de la función. Y luego para importar en la app tengo que poner import { función } from "./path.js" - cuando el export es "default" las llaves no son necesarias
-
-// Todos los componentes funcionales empiezan con mayúscula - así como debemos escribir el nombre del archivo con el nombre de la función del componente que vamos a crear
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,8 +6,7 @@ import Button from "@mui/material/Button";
 import TemporaryDrawer from "../NavDrawer/NavDrawer.js";
 import "./NavBar.scss";
 import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { PathRoute } from "../Context/PathRoute/PathRoute.js";
+import { Link } from "react-router-dom";
 import { AccountMenu } from "../AccountMenu/AccountMenu.js";
 import { UserContext } from "../Context/UserContext/UserContext.js";
 
