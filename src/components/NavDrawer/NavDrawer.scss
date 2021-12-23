@@ -13,7 +13,7 @@
         background-color: black !important;
     }
 }
-.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+.MuiDrawer-paperAnchorLeft {
     background-color: black !important;
     background-image: linear-gradient(
         to bottom,
@@ -21,16 +21,16 @@
         rgba(2, 136, 73, 0.123),
         rgba(0, 68, 34, 0.123)
     ) !important;
-    .css-h4y409-MuiList-root {
+    .MuiList-padding {
         border-bottom: 2px solid rgba(255, 255, 255, 0.466);
         &:last-of-type {
             border-bottom: 2px solid transparent;
         }
-        .css-bshv44-MuiButtonBase-root-MuiListItem-root {
+        .MuiListItem-button {
             &:hover {
                 background-color: rgba(1, 255, 128, 0.123);
             }
-            .css-10hburv-MuiTypography-root {
+            .MuiListItemText-primary {
                 color: white;
                 font-family: "Readex Pro", sans-serif;
                 font-weight: 200;
@@ -42,7 +42,7 @@
                 justify-content: space-between;
             }
         }
-        .css-cveggr-MuiListItemIcon-root {
+        .cart-ico-container {
             color: white;
         }
         .link-item {
