@@ -173,7 +173,7 @@
                         }
                     }
                 }
-                .css-r47a1p-MuiFormControl-root {
+                .MuiFormControl-root {
                     min-width: 22vw;
                     color: white;
                     border-bottom: 1px solid
@@ -189,7 +189,7 @@
                             ),
                             0.253
                         );
-                    .css-f6v4u4-MuiInputBase-root-MuiFilledInput-root:after {
+                    .MuiInputBase-root:after {
                         border-bottom: 1px solid
                             rgba(
                                 var(
@@ -205,7 +205,7 @@
                             );
                     }
                 }
-                .css-cio0x1-MuiInputBase-root-MuiFilledInput-root:after {
+                .MuiInputBase-formControl:after {
                     border-bottom: 1px solid
                         rgba(
                             var(
@@ -220,7 +220,7 @@
                             1
                         );
                 }
-                .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+                .MuiTextField-root {
                     color: white;
                 }
                 .login-input-field {
