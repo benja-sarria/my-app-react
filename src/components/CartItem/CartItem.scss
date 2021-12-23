@@ -19,7 +19,7 @@
                 var(--globalGreenHighlight-background-color-b),
                 0.35
             );
-        .css-h4y409-MuiList-root {
+        .MuiList-padding {
             min-width: 80vw;
             max-width: 80vw;
             border-right: 2px solid
@@ -30,14 +30,14 @@
                     0.25
                 );
 
-            .css-1rki8sg-MuiListItem-root {
-                .css-518kzi-MuiListItemSecondaryAction-root {
-                    .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+            .MuiListItem-padding {
+                .MuiListItemSecondaryAction-root {
+                    .MuiIconButton-edgeEnd {
                         color: var(--globalGreenHighlight-background-color);
                     }
                 }
-                .css-konndc-MuiListItemText-root {
-                    .css-83ijpv-MuiTypography-root {
+                .MuiListItemText-multiline {
+                    .MuiListItemText-secondary {
                         font-size: 0.95em;
                         color: white;
                         max-width: 80%;
@@ -46,7 +46,7 @@
                         font-family: "Readex Pro", sans-serif;
                         font-weight: 200;
                     }
-                    .css-10hburv-MuiTypography-root {
+                    .MuiListItemText-primary {
                         font-size: 1.5em;
                         font-family: "Readex Pro", sans-serif;
                         .product-link {
@@ -55,8 +55,8 @@
                         }
                     }
                 }
-                .css-1e9lk82-MuiListItemAvatar-root {
-                    .css-2s90m6-MuiAvatar-root {
+                .MuiListItemAvatar-root {
+                    .MuiAvatar-colorDefault {
                         min-width: 5em;
                         min-height: 5em;
                         img {
