@@ -176,19 +176,7 @@
                 .MuiFormControl-root {
                     min-width: 22vw;
                     color: white;
-                    border-bottom: 1px solid
-                        rgba(
-                            var(
-                                --globalGreenHighlight-background-color-glitch-r
-                            ),
-                            var(
-                                --globalGreenHighlight-background-color-glitch-g
-                            ),
-                            var(
-                                --globalGreenHighlight-background-color-glitch-b
-                            ),
-                            0.253
-                        );
+                    border-bottom: 1px solid rgba(126, 216, 193, 0.253);
                     .MuiInputBase-root:after {
                         border-bottom: 1px solid
                             rgba(
