@@ -29,9 +29,9 @@
         transition: color 500ms ease;
     }
 
-    .css-1tp3ba8-MuiGrid-root {
+    .MuiGrid-item {
         color: white;
-        .css-11a40jv2-MuiTypography-root {
+        .MuiTypography-h6 {
             font-family: "Readex Pro", sans-serif;
             font-size: 3em;
             font-weight: 300;
@@ -39,8 +39,8 @@
         }
         .css-1k9ek97 {
             background-color: transparent;
-            .css-h4y409-MuiList-root {
-                .css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root {
+            .MuiList-padding {
+                .MuiButtonBase-root {
                     padding: 1.5em;
 
                     border-bottom: solid 2px
@@ -51,22 +51,22 @@
                         border-bottom: solid 2px transparent;
                     }
 
-                    .css-tlelie-MuiListItemText-root {
+                    .MuiListItemText-root {
                         &:hover {
-                            .css-10hburv-MuiTypography-root {
+                            .MuiListItemText-primary {
                                 color: var(
                                     --globalGreenHighlight-background-color
                                 );
                             }
                         }
 
-                        .css-10hburv-MuiTypography-root {
+                        .MuiListItemText-primary {
                             transition: color 500ms ease;
 
                             font-family: "Readex Pro", sans-serif;
                         }
                     }
-                    .css-8je8zh-MuiTouchRipple-root {
+                    .MuiTouchRipple-root {
                         .MuiTouchRipple-rippleVisible {
                             .MuiTouchRipple-child {
                                 background-color: var(
@@ -75,8 +75,8 @@
                             }
                         }
                     }
-                    .css-1e9lk82-MuiListItemAvatar-root {
-                        .css-2s90m6-MuiAvatar-root {
+                    .MuiListItemAvatar-root {
+                        .MuiAvatar-colorDefault {
                             background-color: var(
                                 --globalGreenHighlight-background-color
                             );
