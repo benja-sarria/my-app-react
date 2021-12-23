@@ -6,6 +6,8 @@
 
 Su desarrollo y estructura se realizó en consonancia con las consignas planteadas para la entrega del trabajo final para el curso de `React JS` de CoderHouse.
 
+<strong> `Link al Sitio en Netlify:` https://planetsushi.netlify.app/ </strong>
+
 <i><span style="color: aquamarine">ATENCIÓN: En caso de que no desees leer todo el documento, recomendamos saltear hasta la `Sección 4` del `Funcionamiento con Firebase`, para ingresar con cuenta Admin y comprobar las funcionalidades en su totalidad</span></i>
 
 <br />
