@@ -6,13 +6,7 @@
         margin-bottom: 1em;
     }
     .cart-content-container {
-        border: 2px solid
-            rgba(
-                var(--globalGreenHighlight-background-color-r),
-                var(--globalGreenHighlight-background-color-g),
-                var(--globalGreenHighlight-background-color-b),
-                0.35
-            );
+        border: 2px solid rgba(0, 196, 147, 0.35);
         .cart-view-total {
             padding: 1em;
             display: flex;
